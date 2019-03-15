@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Personal Finance:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Personal Finance" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="activation-1.1" />
+          <element id="library" level="project" name="javax.mail-1.5.1" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.39" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Personal Finance/web/Web" />
+    </root>
+  </artifact>
+</component>
