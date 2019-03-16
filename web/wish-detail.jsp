@@ -142,6 +142,9 @@
                         <div class="layui-inline">
                             <button class="layui-btn layui-btn-lg">开始搜索</button>
                         </div>
+                        <%--<div class="layui-card-body">--%>
+                            <a class="layui-btn layui-btn-lg" style="float: right" href="wish-add.jsp">+添加愿望</a>
+                        <%--</div>--%>
                     </div>
                 </form>
             </div>
@@ -204,7 +207,7 @@
                     <%=status%>
                 </td>
                 <td><%=e.getPushTime()%></td>
-                <td><a class="layui-btn layui-btn-sm layui-btn-normal">编辑</a><a class="layui-btn layui-btn-sm layui-btn-danger">删除</a></td>
+                <td><a class="layui-btn layui-btn-sm layui-btn-normal" href="wish-change.jsp?wishid=<%=e.getWishId()%>&status=1">编辑</a><a class="layui-btn layui-btn-sm layui-btn-danger">删除</a></td>
                 <%--<td><%=Num%></td>--%>
                 <%}
                     Num++;
@@ -238,7 +241,6 @@
             <% }else{ %>
             <a class="layui-btn">下一页</a>
             <%}%>
-
         </div>
         <%
             }catch (SQLException s){

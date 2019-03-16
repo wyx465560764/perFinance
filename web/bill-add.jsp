@@ -1,5 +1,4 @@
-<%@ page import="entity.bill" %>
-<%@ page import="DAO.changeBillDAO" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: wyx
   Date: 2019/3/14
@@ -62,20 +61,17 @@
     });
 </script>
 
-<%
-    bill bill=changeBillDAO.getInstance().changeBillSelect(request.getParameter("billid"));
-%>
 <div style="padding: 20px; background-color: #F2F2F2;">
     <div style="height: 30px">
         <span class="layui-breadcrumb">
             <a href="main.jsp">首页</a>
             <a href="bill-detail.jsp?page=1">查看账单</a>
-            <a><cite>修改账单</cite></a>
+            <a><cite>新增账单</cite></a>
         </span>
     </div>
     <div class="layui-col-md12">
         <div class="layui-card">
-            <div class="layui-card-header">修改账单</div>
+            <div class="layui-card-header">新增账单</div>
             <div class="layui-card-body">
                 <script>
                     //Demo
@@ -100,12 +96,12 @@
                         });
                     });
                 </script>
-                <form class="layui-form" action="changebill" method="post">
+                <form class="layui-form" action="addbill" method="post">
                     <div class="layui-form-item">
                         <label class="layui-form-label" style="width: auto">消费/收入类型</label>
                         <div class="layui-input-inline">
                             <select name="billname" lay-verify="required">
-                                <option value="<%=bill.getBillName()%>"><%=bill.getBillName()%></option>
+                                <option value=""></option>
                                 <option value="衣食住">衣食住</option>
                                 <option value="收入">收入</option>
                                 <option value="医疗保健教育">医疗保健教育</option>
@@ -119,28 +115,27 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">金额</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="money" required lay-verify="required|number" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=bill.getMoney()%>">
+                            <input type="text" name="money" lay-verify="required|number" placeholder="输入内容" autocomplete="off" class="layui-input">
                         </div>
                         <%--<div class="layui-form-mid layui-word-aux">辅助文字</div>--%>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">备注</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="remark" required lay-verify="required" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=bill.getRemark()%>">
+                            <input type="text" name="remark" lay-verify="required" placeholder="输入内容" autocomplete="off" class="layui-input">
                         </div>
-                        <div class="layui-form-mid layui-word-aux">可以记录一下消费/收入的具体项目</div>
+                        <div class="layui-form-mid layui-word-aux">可以记录一下消费的具体项目</div>
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label" style="width: auto">消费/收入日期</label>
                             <div class="layui-input-inline">
-                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="spenttime" required lay-verify="required" value="<%=bill.getSpentTime()%>">
+                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="spenttime" lay-verify="required|date">
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="billid" value="<%=bill.getBillId()%>">
-                    <input type="hidden" name="userid" value="<%=bill.getUserId()%>">
-                    <button class="layui-btn layui-btn-fluid" lay-submit="">修改</button>
+                    <input type="hidden" name="userid" value="<%=session.getAttribute("userid")%>">
+                    <button class="layui-btn layui-btn-fluid" lay-submit="">新增</button>
                 </form>
             </div>
         </div>

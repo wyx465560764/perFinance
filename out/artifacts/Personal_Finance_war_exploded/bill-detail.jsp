@@ -149,6 +149,7 @@
                         <div class="layui-inline">
                             <button class="layui-btn layui-btn-lg">开始搜索</button>
                         </div>
+                        <a class="layui-btn layui-btn-lg" style="float: right" href="bill-add.jsp">+记账</a>
                     </div>
                 </form>
 

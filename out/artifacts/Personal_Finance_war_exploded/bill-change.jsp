@@ -100,9 +100,9 @@
                         });
                     });
                 </script>
-                <form class="layui-form" action="changebill" method="get">
+                <form class="layui-form" action="changebill" method="post">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">选择框</label>
+                        <label class="layui-form-label" style="width: auto">消费/收入类型</label>
                         <div class="layui-input-inline">
                             <select name="billname" lay-verify="required">
                                 <option value="<%=bill.getBillName()%>"><%=bill.getBillName()%></option>
@@ -119,7 +119,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">金额</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="money" required lay-verify="required" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=bill.getMoney()%>">
+                            <input type="text" name="money" required lay-verify="required|number" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=bill.getMoney()%>">
                         </div>
                         <%--<div class="layui-form-mid layui-word-aux">辅助文字</div>--%>
                     </div>
@@ -128,19 +128,19 @@
                         <div class="layui-input-inline">
                             <input type="text" name="remark" required lay-verify="required" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=bill.getRemark()%>">
                         </div>
-                        <div class="layui-form-mid layui-word-aux">可以记录一下消费的具体项目</div>
+                        <div class="layui-form-mid layui-word-aux">可以记录一下消费/收入的具体项目</div>
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label" style="width: auto">消费日期</label>
+                            <label class="layui-form-label" style="width: auto">消费/收入日期</label>
                             <div class="layui-input-inline">
-                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="spenttime" value="<%=bill.getSpentTime()%>">
+                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="spenttime" required lay-verify="required" value="<%=bill.getSpentTime()%>">
                             </div>
                         </div>
                     </div>
                     <input type="hidden" name="billid" value="<%=bill.getBillId()%>">
                     <input type="hidden" name="userid" value="<%=bill.getUserId()%>">
-                    <button class="layui-btn layui-btn-fluid">修改</button>
+                    <button class="layui-btn layui-btn-fluid" lay-submit="">修改</button>
                 </form>
             </div>
         </div>

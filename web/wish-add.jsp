@@ -1,5 +1,4 @@
-<%@ page import="entity.bill" %>
-<%@ page import="DAO.changeBillDAO" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: wyx
   Date: 2019/3/14
@@ -61,21 +60,17 @@
         var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
     });
 </script>
-
-<%
-    bill bill=changeBillDAO.getInstance().changeBillSelect(request.getParameter("billid"));
-%>
 <div style="padding: 20px; background-color: #F2F2F2;">
     <div style="height: 30px">
         <span class="layui-breadcrumb">
             <a href="main.jsp">首页</a>
-            <a href="bill-detail.jsp?page=1">查看账单</a>
-            <a><cite>修改账单</cite></a>
+            <a href="wish-detail.jsp?page=1">查看愿望单</a>
+            <a><cite>新增愿望</cite></a>
         </span>
     </div>
     <div class="layui-col-md12">
         <div class="layui-card">
-            <div class="layui-card-header">修改账单</div>
+            <div class="layui-card-header">新增愿望</div>
             <div class="layui-card-body">
                 <script>
                     //Demo
@@ -83,7 +78,7 @@
                         var form = layui.form;
 
                         //监听提交
-                        form.on('submit(formDemo)', function(data){
+                        form.on('submit(demo1)', function(data){
                             layer.msg(JSON.stringify(data.field));
                             return false;
                         });
@@ -100,47 +95,42 @@
                         });
                     });
                 </script>
-                <form class="layui-form" action="changebill" method="post">
+                <form class="layui-form" action="addwish" method="get">
                     <div class="layui-form-item">
-                        <label class="layui-form-label" style="width: auto">消费/收入类型</label>
+                        <label class="layui-form-label" style="width: auto">愿望名称</label>
                         <div class="layui-input-inline">
-                            <select name="billname" lay-verify="required">
-                                <option value="<%=bill.getBillName()%>"><%=bill.getBillName()%></option>
-                                <option value="衣食住">衣食住</option>
-                                <option value="收入">收入</option>
-                                <option value="医疗保健教育">医疗保健教育</option>
-                                <option value="人情">人情</option>
-                                <option value="家庭设备和服务">家庭设备和服务</option>
-                                <option value="交通和通讯">交通和通讯</option>
-                                <option value="其他">其他</option>
+                            <input type="text" name="wishname" required lay-verify="required" placeholder="输入内容" autocomplete="off" class="layui-input">
+                        </div>
+                        <%--<div class="layui-form-mid layui-word-aux">可以记录一下消费的具体项目</div>--%>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="width: auto">愿望状态</label>
+                        <div class="layui-input-inline">
+                            <select name="wishstatus" required lay-verify="required">
+                                <option value=""></option>
+                                <option value="0">未实现</option>
+                                <option value="1">已实现</option>
+                                <option value="2">已放弃</option>
                             </select>
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">金额</label>
+                        <label class="layui-form-label" style="width: auto">预计花费</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="money" required lay-verify="required|number" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=bill.getMoney()%>">
+                            <input type="text" name="money" lay-verify="required|number" placeholder="输入内容" autocomplete="off" class="layui-input">
                         </div>
                         <%--<div class="layui-form-mid layui-word-aux">辅助文字</div>--%>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">备注</label>
-                        <div class="layui-input-inline">
-                            <input type="text" name="remark" required lay-verify="required" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=bill.getRemark()%>">
-                        </div>
-                        <div class="layui-form-mid layui-word-aux">可以记录一下消费/收入的具体项目</div>
-                    </div>
-                    <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label" style="width: auto">消费/收入日期</label>
+                            <label class="layui-form-label" style="width: auto">计划实现日期</label>
                             <div class="layui-input-inline">
-                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="spenttime" required lay-verify="required" value="<%=bill.getSpentTime()%>">
+                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="plantime" required lay-verify="required|date">
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="billid" value="<%=bill.getBillId()%>">
-                    <input type="hidden" name="userid" value="<%=bill.getUserId()%>">
-                    <button class="layui-btn layui-btn-fluid" lay-submit="">修改</button>
+                    <input type="hidden" name="userid" value="<%=session.getAttribute("userid")%>">
+                    <button class="layui-btn layui-btn-fluid" lay-submit="">新增</button>
                 </form>
             </div>
         </div>

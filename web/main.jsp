@@ -84,7 +84,7 @@
                 <div class="layui-card">
                     <div class="layui-card-header"><strong style="font-size: 20px">近期消费情况（最大显示六个月，未记账月份不列出）</strong></div>
                     <div id="container" style="height: 300px"></div>
-                    <script type="text/javascript" src="js/echarts.js"></script>
+                    <script type="text/javascript" src="js/echarts.common.min.js"></script>
                     <script type="text/javascript">
                         var dom = document.getElementById("container");
                         var myChart = echarts.init(dom);
