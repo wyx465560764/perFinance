@@ -6,36 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eee75dc3-9ae1-43f5-939a-4b550664a1dc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAO/addBillWishDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAO/changeWishDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/addBillServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/addWishDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/changeWishServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bill-add.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/wish-add.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/wish-change.jsp" afterDir="false" />
+    <list default="true" id="eee75dc3-9ae1-43f5-939a-4b550664a1dc" name="Default" comment="3/16总结">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/WEB-INF/classes/servlet/changeBillServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/WEB-INF/classes/servlet/changeBillServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/bill-change.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/bill-change.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/bill-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/bill-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/js/echarts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/sign-up.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/sign-up.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/wish-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/wish-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/wish-search-result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/wish-search-result.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Personal Finance/servlet/changeBillServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Personal Finance/servlet/changeBillServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/changeBillServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/changeBillServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/bill-change.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/bill-change.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/bill-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/bill-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/echarts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/sign-up.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/sign-up.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wish-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/wish-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wish-search-result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/wish-search-result.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/img/轮播图1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/img/轮播图2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/img/轮播图3.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -141,8 +116,8 @@
       <file leaf-file-name="addBillWishDAO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DAO/addBillWishDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="37" column="21" lean-forward="true" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+            <state relative-caret-position="41">
+              <caret line="34" column="64" lean-forward="true" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -294,6 +269,12 @@
               <item name="Personal Finance" type="b2602c69:ProjectViewProjectNode" />
               <item name="Personal Finance" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Personal Finance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Personal Finance" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -454,16 +435,30 @@
       <option name="presentableId" value="Default" />
       <updated>1552629501909</updated>
       <workItem from="1552629508547" duration="7234000" />
-      <workItem from="1552703540018" duration="23076000" />
+      <workItem from="1552703540018" duration="29854000" />
     </task>
+    <task id="LOCAL-00001" summary="3/16总结">
+      <created>1552738832686</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1552738832687</updated>
+    </task>
+    <task id="LOCAL-00002" summary="3/16总结">
+      <created>1552739121319</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552739121319</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30310000" />
+    <option name="totallyTimeSpent" value="37088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -484,9 +479,9 @@
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30098146" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30098146" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12579957" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12579957" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -503,6 +498,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="3/16总结" />
+    <option name="LAST_COMMIT_MESSAGE" value="3/16总结" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -713,8 +712,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/addBillWishDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="37" column="21" lean-forward="true" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        <state relative-caret-position="41">
+          <caret line="34" column="64" lean-forward="true" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
