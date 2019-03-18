@@ -33,7 +33,7 @@ public class signUpDAO {
     }
     public boolean signUp(user user)throws SQLException,Exception{
         Connection con=DBHelper.getConnection();
-        String sql="insert into user value(0,?,?,?,2)";
+        String sql="insert into user value(0,?,?,?,2,null,null)";
         PreparedStatement st=con.prepareStatement(sql);
         st.setString(1,user.getUsername());
         st.setString(2,user.getPassword());
