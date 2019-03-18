@@ -246,11 +246,7 @@
 								}
 							%>
 						</table>
-						<%--<button class="layui-btn" href="index.jsp">管理愿望单</button>--%>
 						<a href="wish-detail.jsp?page=1" class="layui-btn layui-btn-fluid">管理愿望单</a>
-						<%--<button type="button" class="btn btn-success btn-block">--%>
-						<%--管理愿望单--%>
-						<%--</button>--%>
 					</div>
 					<div class="layui-tab-item">
 						<table class="layui-table" lay-skin="row">

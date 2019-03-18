@@ -127,7 +127,7 @@
                                 <%=status%>
                             </td>
                             <td><%=e.getPushTime()%></td>
-                            <td><a class="layui-btn layui-btn-sm layui-btn-normal" href="wish-change.jsp?wishid=<%=e.getWishId()%>&status=2">编辑</a><a class="layui-btn layui-btn-sm layui-btn-danger">删除</a></td>
+                            <td><a class="layui-btn layui-btn-sm layui-btn-normal" href="wish-change.jsp?wishid=<%=e.getWishId()%>&status=2">编辑</a><a href="deletewish?wishid=<%=e.getWishId()%>&status=1&page=<%=Page%>&num=<%=RowCount%>" class="layui-btn layui-btn-sm layui-btn-danger">删除</a></td>
                             <%--<td><%=Num%></td>--%>
                             <%}
                             Num++;
