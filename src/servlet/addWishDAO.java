@@ -41,7 +41,7 @@ public class addWishDAO extends HttpServlet {
             if(addBillWishDAO.getInstance().addWish(wish)){
                 PrintWriter out = resp.getWriter();
                 out.println("<script language = javascript>alert('新增完成');");
-                out.println("location.href='wish-detail.jsp?page=1'</script>");
+                out.println("location.href='"+req.getContextPath()+"wish-detail.jsp?page=1'</script>");
             }
         }catch (SQLException s){
             s.printStackTrace();

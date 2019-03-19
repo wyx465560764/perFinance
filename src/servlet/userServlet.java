@@ -27,11 +27,11 @@ public class userServlet extends HttpServlet {
 //        System.out.println(password);
         if(username.equals("")){
             out.println("<script language = javascript>alert('用户名为空');");
-            out.println("location.href='index.jsp'</script>");
+            out.println("location.href='"+req.getContextPath()+"index.jsp'</script>");
         }
         else if (password.equals("")){
             out.println("<script language = javascript>alert('密码为空');");
-            out.println("location.href='index.jsp'</script>");
+            out.println("location.href='"+req.getContextPath()+"index.jsp'</script>");
         }else {
             try{
                 DAO.userDAO userDAO=new userDAO();
@@ -48,7 +48,7 @@ public class userServlet extends HttpServlet {
 //                    out.println("<script language = javascript> location.href='finance/main.jsp'</script>");
                 }else {
                     out.println("<script language = javascript>alert('用户名或密码错误');");
-                    out.println("location.href='index.jsp'</script>");
+                    out.println("location.href='"+req.getContextPath()+"index.jsp'</script>");
                 }
 //                req.getRequestDispatcher("finance/main.jsp").forward(req, resp);
 //                System.out.println(session.getAttribute("userid"));

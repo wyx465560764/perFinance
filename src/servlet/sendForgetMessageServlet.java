@@ -40,7 +40,7 @@ public class sendForgetMessageServlet extends HttpServlet{
                 user user=new user();
                 if(request.getParameter("email")==null){
                     out.println("<script language = javascript>alert('请输入邮箱');");
-                    out.println("location.href='login/sign-up.jsp'</script>");
+                    out.println("location.href='"+request.getContextPath()+"login/sign-up.jsp'</script>");
                 }
                 user.setEmail(request.getParameter("email"));
                 request.getSession().setAttribute("email",user.getEmail());

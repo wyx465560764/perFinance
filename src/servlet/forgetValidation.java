@@ -54,7 +54,7 @@ public class forgetValidation extends HttpServlet {
                     if(forgetDAO.forget(user)){
                         session.invalidate();
                         out.println("<script language = javascript>alert('密码修改成功，请重新登录');");
-                        out.println("location.href='index.jsp'</script>");
+                        out.println("location.href='"+request.getContextPath()+"index.jsp'</script>");
                     }
                 }catch (SQLException s){
                     s.printStackTrace();
@@ -71,13 +71,13 @@ public class forgetValidation extends HttpServlet {
             else{
                 System.out.println("修改失败");
                 out.println("<script language = javascript>alert('验证码错误，请重试');");
-                out.println("location.href='forgot.jsp'</script>");
+                out.println("location.href='"+request.getContextPath()+"forgot.jsp'</script>");
 //            request.getSession().setAttribute("ValidaError", "输入的邮箱验证码错误！");   //设置东西保存验证码
 //            request.getRequestDispatcher("SecondSteps.jsp").forward(request, response);
             }
         }else {
             out.println("<script language = javascript>alert('两次密码不一致');");
-            out.println("location.href='forgot-change.jsp'</script>");
+            out.println("location.href='"+request.getContextPath()+"forgot-change.jsp'</script>");
         }
     }
 

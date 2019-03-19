@@ -47,7 +47,7 @@ public class addBillServlet extends HttpServlet {
             if(addBillWishDAO.getInstance().addBill(bill)){
                 PrintWriter out = resp.getWriter();
                 out.println("<script language = javascript>alert('新增完成');");
-                out.println("location.href='bill-detail.jsp?page=1'</script>");
+                out.println("location.href='"+req.getContextPath()+"bill-detail.jsp?page=1'</script>");
             }
         }catch (SQLException s){
             s.printStackTrace();

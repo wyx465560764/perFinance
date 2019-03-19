@@ -27,18 +27,18 @@
             <%--<li class="layui-nav-item">--%>
                 <%--<a href="javascript:;">其它功能</a>--%>
                 <%--<dl class="layui-nav-child">--%>
-                    <%--<dd><a href="">发布理财产品</a></dd>--%>
-                    <%--<dd><a href="">修改理财产品</a></dd>--%>
+                    <%--<dd><a href="">发布基金</a></dd>--%>
+                    <%--<dd><a href="">修改基金</a></dd>--%>
                     <%--&lt;%&ndash;<dd><a href="">授权管理</a></dd>&ndash;%&gt;--%>
                 <%--</dl>--%>
             <%--</li>--%>
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <a href="javascript:;">
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    贤心
-                </a>
+                <%--<a href="javascript:;">--%>
+                    <%--<img src="http://t.cn/RCzsdCq" class="layui-nav-img">--%>
+                    <p align="right">欢迎你，<%=session.getAttribute("username")%></p>
+                <%--</a>--%>
 
             </li>
             <li class="layui-nav-item"><a href="login-out.jsp">注销</a></li>
@@ -52,7 +52,7 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">常用操作</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="product-earn.jsp?page=1">理财产品收益管理</a></dd>
+                        <dd><a href="product-earn.jsp?page=1">基金收益管理</a></dd>
                         <dd><a href="product-review.jsp?status=1&page=1">买入审核</a></dd>
                         <dd><a href="product-review.jsp?status=2&page=1">卖出审核</a></dd>
                     </dl>
@@ -64,8 +64,8 @@
                         <%--<dd><a href="javascript:;">卖出审核</a></dd>--%>
                     <%--</dl>--%>
                 <%--</li>--%>
-                <li class="layui-nav-item"><a href="product-change.jsp?page=1.jsp">修改理财产品</a></li>
-                <li class="layui-nav-item"><a href="product-add.jsp">发布理财产品</a></li>
+                <li class="layui-nav-item"><a href="product-change.jsp?page=1.jsp">修改基金</a></li>
+                <li class="layui-nav-item"><a href="product-add.jsp">发布基金</a></li>
             </ul>
         </div>
     </div>

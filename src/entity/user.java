@@ -6,6 +6,8 @@ public class user {
     private String password;
     private String username;
     private String type;
+    private String identity;
+    private String managercontext;
     public String getType() {
         return type;
     }
@@ -43,4 +45,21 @@ public class user {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(String identity) {
+        this.identity = identity;
+    }
+
+    public String getManagercontext() {
+        return managercontext;
+    }
+
+    public void setManagercontext(String managercontext) {
+        this.managercontext = managercontext;
+    }
+
 }

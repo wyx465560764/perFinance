@@ -18,7 +18,7 @@ public class DBHelper{
         try{
             Class.forName("com.mysql.jdbc.Driver");
 
-            String url = "jdbc:mysql://localhost/perfinance?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf-8";
+            String url = "jdbc:mysql://localhost/perfinance?useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&characterEncoding=UTF-8";
             String user = "root";
             String pw = "123456";
             DBHelper.connection =

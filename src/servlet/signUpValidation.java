@@ -48,7 +48,7 @@ public class signUpValidation extends HttpServlet {
                     System.out.println("注册成功");
                     session.invalidate();
                     out.println("<script language = javascript>alert('注册成功，请再次登录');");
-                    out.println("location.href='index.jsp'</script>");
+                    out.println("location.href='"+req.getContextPath()+"index.jsp'</script>");
                 }
             }catch (SQLException s){
                 s.printStackTrace();

@@ -43,7 +43,7 @@ public class changeWishServlet extends HttpServlet {
                 if(changeWishDAO.getInstance().changeWish(wish)){
                     PrintWriter out = resp.getWriter();
                     out.println("<script language = javascript>alert('修改完成');");
-                    out.println("location.href='wish-detail.jsp?page=1'</script>");
+                    out.println("location.href='"+req.getContextPath()+"wish-detail.jsp?page=1'</script>");
                 }
             }catch (SQLException s){
                 s.printStackTrace();

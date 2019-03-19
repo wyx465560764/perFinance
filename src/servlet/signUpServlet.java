@@ -28,7 +28,7 @@ public class signUpServlet extends HttpServlet {
         user.setEmail(req.getParameter("email"));
         if(user.getUsername().equals("")||user.getPassword().equals("")||user.getEmail().equals("")||req.getParameter("re-password").equals("")){
             out.println("<script language = javascript>alert('请完善所有资料再注册');");
-            out.println("location.href='sign-up.jsp'</script>");
+            out.println("location.href='"+req.getContextPath()+"sign-up.jsp'</script>");
         }else {
             if(req.getParameter("password").equals(req.getParameter("re-password"))){
                 signUpDAO signUpDAO=new signUpDAO();
@@ -53,11 +53,11 @@ public class signUpServlet extends HttpServlet {
 //                        }
                         }else {
                             out.println("<script language = javascript>alert('邮箱已被注册请更换一个');");
-                            out.println("location.href='login/sign-up.jsp'</script>");
+                            out.println("location.href='"+req.getContextPath()+"login/sign-up.jsp'</script>");
                         }
                     }else {
                         out.println("<script language = javascript>alert('用户名重复请更换一个');");
-                        out.println("location.href='login/sign-up.jsp'</script>");
+                        out.println("location.href='"+req.getContextPath()+"login/sign-up.jsp'</script>");
                     }
                 }catch (SQLException s){
                     s.printStackTrace();
@@ -67,7 +67,7 @@ public class signUpServlet extends HttpServlet {
 //                System.out.println(user.getUsername()+user.getPassword());
             }else {
                 out.println("<script language = javascript>alert('前后密码不一致，请检查');");
-                out.println("location.href='login/sign-up.jsp'</script>");
+                out.println("location.href='"+req.getContextPath()+"login/sign-up.jsp'</script>");
             }
         }
     }

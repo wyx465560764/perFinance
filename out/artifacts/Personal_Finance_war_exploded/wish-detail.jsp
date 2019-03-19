@@ -46,7 +46,13 @@
             <dd><a href="">电商平台</a></dd>
         </dl>
     </li>
-    <li class="layui-nav-item"><a href="">社区</a></li>
+    <%
+        if(session.getAttribute("type").equals("1")){
+    %>
+    <li class="layui-nav-item"><a href="background.jsp">基金经理后台</a></li>
+    <%
+        }
+    %>
     <li class="layui-nav-item" style="float: right">
         <%--<div class="col-md-1">--%>
         <a href="../login-out.jsp">注销</a>

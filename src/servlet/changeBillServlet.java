@@ -41,7 +41,7 @@ public class changeBillServlet extends HttpServlet {
                 if(changeBillDAO.getInstance().changeBill(bill)){
                     PrintWriter out = resp.getWriter();
                     out.println("<script language = javascript>alert('修改完成');");
-                    out.println("location.href='bill-detail.jsp?page=1'</script>");
+                    out.println("location.href='"+req.getContextPath()+"bill-detail.jsp?page=1'</script>");
                 }
             }catch (SQLException s){
                 s.printStackTrace();
