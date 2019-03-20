@@ -144,7 +144,7 @@
                         <div class="layui-input-inline">
                             <input type="text" name="expectedincome" lay-verify="required|number" autocomplete="off" class="layui-input">
                         </div>
-                        <div class="layui-form-mid layui-word-aux">该输入框的单位已设定为%，无需再次输入%，不定收入则不需要输入</div>
+                        <div class="layui-form-mid layui-word-aux">该输入框的单位已设定为%，无需再次输入%</div>
                     </div>
                     <div class="layui-form-item layui-form-text">
                         <label class="layui-form-label">备注</label>

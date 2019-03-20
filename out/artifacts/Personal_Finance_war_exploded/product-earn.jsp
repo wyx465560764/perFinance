@@ -128,7 +128,7 @@
                             <%=e.getOver()%>/<%=e.getSum()%>
                         </td>
                         <td><%=e.getNowprice()%></td>
-                        <td><a class="layui-btn layui-btn-sm layui-btn-normal" href="product-earn-change.jsp?productid=<%=e.getProductid()%>">编辑</a></td>
+                        <td><a class="layui-btn layui-btn-sm layui-btn-normal" href="product-earn-change.jsp?productid=<%=e.getProductid()%>">更新</a></td>
                         <%--<td><%=Num%></td>--%>
                         <%}
                             Num++;

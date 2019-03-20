@@ -143,8 +143,8 @@
                                 ],
                                 type: 'line',
                                 areaStyle: {},
-                                itemStyle : { normal: {label : {show: true}}}
-
+                                itemStyle : { normal: {label : {show: true}}},
+                                smooth: true
                             }]
                         };
                         ;

@@ -23,7 +23,11 @@ public class addProductDAO {
         st.setDouble(7,product.getExpectedincome());
         st.setString(8,product.getRemark());
         st.setInt(9,product.getUserid());
-        if(st.executeUpdate()>0){
+//        String sqle="insert into earn value (0,NOW(),?,?)";
+//        PreparedStatement ste=con.prepareStatement(sqle);
+//        ste.setDouble(1,product.getNowprice());
+//        ste.setDouble(2,product.getProductid());
+        if((st.executeUpdate()>0)){
             return true;
         }else {
             return false;
