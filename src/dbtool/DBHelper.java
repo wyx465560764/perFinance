@@ -6,11 +6,18 @@ public class DBHelper{
     //Static instance of connection, only one will ever exist
     private static Connection connection = null;
     //Returns single instance of connection
-    public static Connection getConnection(){
-        //If instance has not been created yet, create it
-        if(DBHelper.connection == null){
-            initConnection();
+    public static Connection getConnection() throws SQLException{
+        if (DBHelper.connection == null||DBHelper.connection.isClosed()) {
+            synchronized (DBHelper.class) {
+                if (DBHelper.connection == null||DBHelper.connection.isClosed()) {
+                    initConnection();
+                }
+            }
         }
+        //If instance has not been created yet, create it
+//        if(DBHelper.connection == null||DBHelper.connection.isClosed()){
+//            initConnection();
+//        }懒汉式
         return DBHelper.connection;
     }
     //Gets JDBC connection instance
