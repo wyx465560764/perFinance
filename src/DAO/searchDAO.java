@@ -54,6 +54,8 @@ public class searchDAO {
 //            System.out.println(rs.getString("wishname"));
             billArrayList.add(e);
         }
+        st.close();
+        rs.close();
         return billArrayList;
     }
     public List<wish> searchWish(List list) throws SQLException,Exception{
@@ -97,6 +99,8 @@ public class searchDAO {
 //            System.out.println(rs.getString("wishname"));
             wishArrayList.add(e);
         }
+        st.close();
+        rs.close();
         return wishArrayList;
     }
     private wish fromWishResultSet(ResultSet rs)throws SQLException{

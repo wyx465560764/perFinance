@@ -14,6 +14,7 @@
     <title>个人理财系统-基金经理后台</title>
     <link rel="stylesheet" href="css/layui.css">
     <script src="layui.js"></script>
+    <link rel="shortcut icon" href="/images/shortcuticon.ico" />
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -163,7 +164,7 @@
         </fieldset>
         <div class="layui-footer">
             <!-- 底部固定区域 -->
-            © layui.com - 底部固定区域
+            投资有风险，理财需谨慎
         </div>
     </div>
     <script>

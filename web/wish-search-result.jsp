@@ -27,6 +27,7 @@
         List list=(List) session.getAttribute("searchwish");
         List<wish> wishList=searchDAO.getInstance().searchWish(list);
     %>
+    <link rel="shortcut icon" href="/images/shortcuticon.ico" />
 </head>
 <body>
 

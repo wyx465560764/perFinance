@@ -25,6 +25,8 @@ public class detailDAO {
             wish e=fromWishResultSet(rs);
             wishArrayList.add(e);
         }
+        st.close();
+        rs.close();
         return wishArrayList;
     }
     public List<bill> selectBillByFirst(String userid)throws SQLException{
@@ -38,6 +40,8 @@ public class detailDAO {
             bill e=fromBillResultSet(rs);
             billArrayList.add(e);
         }
+        st.close();
+        rs.close();
         return billArrayList;
     }
     private bill fromBillResultSet(ResultSet rs)throws SQLException{

@@ -14,8 +14,10 @@ public class deleteBillDAO {
         PreparedStatement st=con.prepareStatement(sql);
         st.setInt(1,bill.getBillId());
         if(st.executeUpdate()>0){
+            st.close();
             return true;
         }else {
+            st.close();
             return false;
         }
     }

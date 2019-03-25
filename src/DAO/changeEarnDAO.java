@@ -22,6 +22,8 @@ public class changeEarnDAO {
             product.setNowprice(rs.getDouble("nowprice"));
             product.setProductname(rs.getString("productname"));
         }
+        st.close();
+        rs.close();
         return product;
     }
     public boolean changeEarn(product product)throws SQLException {
@@ -35,8 +37,12 @@ public class changeEarnDAO {
         ste.setDouble(1,product.getNowprice());
         ste.setDouble(2,product.getProductid());
         if((stp.executeUpdate()>0)&&(ste.executeUpdate()>0)){
+            ste.close();
+            stp.close();
             return true;
         }else {
+            ste.close();
+            stp.close();
             return false;
         }
     }

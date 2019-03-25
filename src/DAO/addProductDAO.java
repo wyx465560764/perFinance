@@ -5,6 +5,7 @@ import entity.product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class addProductDAO {
@@ -12,6 +13,14 @@ public class addProductDAO {
     public static addProductDAO getInstance(){return instance;}
     public boolean addProduct(product product)throws SQLException,Exception{
         Connection con=DBHelper.getConnection();
+        String usql="select type from user where userid=?";
+        PreparedStatement stu=con.prepareStatement(usql);
+        stu.setInt(1,product.getUserid());
+        ResultSet rs=stu.executeQuery();
+        if(rs.next()){
+            if(rs.getInt("type")!=1)
+            return false;
+        }
         String sql="insert into product value (0,?,?,?,?,?,?,?,?,?)";
         PreparedStatement st=con.prepareStatement(sql);
         st.setString(1,product.getProductname());
@@ -28,8 +37,10 @@ public class addProductDAO {
 //        ste.setDouble(1,product.getNowprice());
 //        ste.setDouble(2,product.getProductid());
         if((st.executeUpdate()>0)){
+            st.close();
             return true;
         }else {
+            st.close();
             return false;
         }
     }

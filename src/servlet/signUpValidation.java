@@ -34,7 +34,7 @@ public class signUpValidation extends HttpServlet {
         String fycodes = req.getParameter("verification");   //邮箱验证码
         int code = Integer.parseInt(fycodes);    //字符串转换为整形
         int num =  (int) req.getSession().getAttribute("num");  //得到刚发送的邮箱验证码
-        System.out.println("你的邮箱验证码为："+num);
+//        System.out.println("你的邮箱验证码为："+num);
         if(code == num){                                            //判断输入的验证码是否和邮箱收到的一致
             System.out.println("验证成功！");
             HttpSession session=req.getSession();

@@ -21,6 +21,7 @@
     <script src="layui.js" charset="utf-8"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/layui.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/shortcuticon.ico" />
 </head>
 <body>
 <ul class="layui-nav">

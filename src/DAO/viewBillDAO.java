@@ -24,6 +24,8 @@ public class viewBillDAO {
             bill e = fromResultSet(rs);
             billArrayList.add(e);
         }
+        st.close();
+        rs.close();
         return billArrayList;
     }
     private bill fromResultSet(ResultSet rs)throws SQLException{

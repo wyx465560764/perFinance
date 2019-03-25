@@ -17,7 +17,7 @@ import java.util.Date;
 import entity.wish;
 
 @WebServlet("/addwish")
-public class addWishDAO extends HttpServlet {
+public class addWishServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException,IOException {
         HttpSession session=req.getSession();

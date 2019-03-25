@@ -25,8 +25,10 @@ public class addBillWishDAO {
         st.setDate(5,spentTime);
         st.setInt(6,bill.getType());
         if(st.executeUpdate()>0){
+            st.close();
             return true;
         }else {
+            st.close();
             return false;
         }
     }
@@ -42,8 +44,10 @@ public class addBillWishDAO {
 //        Date pushTime = new java.sql.Date(wish.getPushTime().getTime());
         st.setInt(5,wish.getWishstatus());
         if(st.executeUpdate()>0){
+            st.close();
             return true;
         }else {
+            st.close();
             return false;
         }
     }

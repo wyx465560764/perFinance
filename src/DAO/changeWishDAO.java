@@ -18,6 +18,8 @@ public class changeWishDAO {
         if(rs.next()){
             wish=fromWishResultSet(rs);
         }
+        st.close();
+        rs.close();
         return wish;
     }
     public boolean changeWish(wish wish)throws SQLException {
@@ -37,8 +39,10 @@ public class changeWishDAO {
 //            st.setInt(5,0);
 //        }
         if(st.executeUpdate()>0){
+            st.close();
             return true;
         }else {
+            st.close();
             return false;
         }
     }

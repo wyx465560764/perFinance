@@ -24,6 +24,8 @@ public class productEarnDAO {
             product e=fromProductResultSet(rs);
             wishArrayList.add(e);
         }
+        st.close();
+        rs.close();
         return wishArrayList;
     }
     private product fromProductResultSet(ResultSet rs)throws SQLException{

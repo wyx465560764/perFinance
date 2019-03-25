@@ -36,6 +36,7 @@ public class sendForgetMessageServlet extends HttpServlet{
             try {
                 mailUtil mail = new mailUtil();
                 int num = (int)((Math.random()*9+1)*100000);   //生成六位验证码随机数
+                System.out.println("你的邮箱验证码为："+num);
                 request.getSession().setAttribute("num", num);   //设置东西保存验证码
                 user user=new user();
                 if(request.getParameter("email")==null){

@@ -23,6 +23,8 @@ public class changeBillDAO {
         if(rs.next()){
             bill=fromBillResultSet(rs);
         }
+        st.close();
+        rs.close();
         return bill;
     }
     public boolean changeBill(bill bill)throws SQLException {
@@ -42,8 +44,10 @@ public class changeBillDAO {
         }
         st.setInt(6,bill.getBillId());
         if(st.executeUpdate()>0){
+            st.close();
             return true;
         }else {
+            st.close();
             return false;
         }
     }

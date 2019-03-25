@@ -14,8 +14,10 @@ public class deleteWishDAO {
         PreparedStatement st=con.prepareStatement(sql);
         st.setInt(1,wish.getWishId());
         if(st.executeUpdate()>0){
+            st.close();
             return true;
         }else {
+            st.close();
             return false;
         }
     }

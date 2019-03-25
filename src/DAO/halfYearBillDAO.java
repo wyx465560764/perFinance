@@ -23,6 +23,8 @@ public class halfYearBillDAO {
             monthBill monthBill=fromResultSet(rs);
             monthBillArrayList.add(monthBill);
         }
+        st.close();
+        rs.close();
         return monthBillArrayList;
     }
     private monthBill fromResultSet(ResultSet rs)throws SQLException,Exception{

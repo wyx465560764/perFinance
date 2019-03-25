@@ -24,6 +24,8 @@ public class viewWishDAO {
             wish e=fromResultSet(rs);
             wishArrayList.add(e);
         }
+        st.close();
+        rs.close();
         return wishArrayList;
     }
     private wish fromResultSet(ResultSet rs)throws SQLException{
