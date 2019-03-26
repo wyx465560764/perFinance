@@ -15,8 +15,7 @@ public class viewBillDAO {
     public static viewBillDAO getInstance(){return instance;}
     public List<bill> selectByUser(String userid)throws SQLException {
         String sql = "select * from bill where userid=? and type=0 order by spenttime desc LIMIT 10";
-        Connection con = DBHelper.getConnection();
-        PreparedStatement st = con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1, userid);
         ResultSet rs = st.executeQuery();
         ArrayList<bill> billArrayList = new ArrayList<>();

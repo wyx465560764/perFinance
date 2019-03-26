@@ -1,6 +1,5 @@
 package DAO;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,22 +9,22 @@ import java.util.List;
 import dbtool.DBHelper;
 import entity.product;
 
-public class productEarnDAO {
-    private static productEarnDAO instance=new productEarnDAO();
-    public static productEarnDAO getInstance(){return instance;}
-    public List<product> SelectProductEarnDetail(String userid) throws SQLException,Exception {
-        String sql = "select * from product where userid=? and earntype=2 order by productid desc";
+public class viewUnfixedIcomeDAO {
+    private static viewUnfixedIcomeDAO instance=new viewUnfixedIcomeDAO();
+    public static viewUnfixedIcomeDAO getInstance(){return instance;}
+    public List<product> selectUnfixedIcome(String type)throws SQLException {
+        String sql="select * from product where type=?";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
-        st.setString(1,userid);
+        st.setString(1,type);
         ResultSet rs=st.executeQuery();
-        ArrayList<product> wishArrayList=new ArrayList<>();
+        ArrayList<product> list=new ArrayList<>();
         while (rs.next()){
             product e=fromProductResultSet(rs);
-            wishArrayList.add(e);
+            list.add(e);
         }
         st.close();
         rs.close();
-        return wishArrayList;
+        return list;
     }
     private product fromProductResultSet(ResultSet rs)throws SQLException{
         product e=new product();

@@ -33,9 +33,8 @@ public class addBillWishDAO {
         }
     }
     public boolean addWish(wish wish)throws SQLException,Exception{
-        Connection con=DBHelper.getConnection();
         String sql="insert into wish value (0,?,?,?,?,?,NOW())";
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setInt(1,wish.getUserId());
         st.setString(2,wish.getWishName());
         Date planTime = new java.sql.Date(wish.getPlanTime().getTime());

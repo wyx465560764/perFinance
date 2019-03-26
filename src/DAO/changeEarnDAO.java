@@ -13,8 +13,7 @@ public class changeEarnDAO {
     public static changeEarnDAO getInstance(){return instance;}
     public product changeEarnSelect(String productid)throws SQLException {
         String sql="select * from product where productid=?";
-        Connection con=DBHelper.getConnection();
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,productid);
         ResultSet rs=st.executeQuery();
         product product=new product();

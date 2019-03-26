@@ -15,8 +15,7 @@ public class viewWishDAO {
     public static viewWishDAO getInstance(){return instance;}
     public List<wish> selectByUser(String userid)throws SQLException{
         String sql = "select * from wish where userid=? and wishstatus=0 order by plantime desc LIMIT 10";
-        Connection con=DBHelper.getConnection();
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,userid);
         ResultSet rs=st.executeQuery();
         ArrayList<wish> wishArrayList=new ArrayList<>();

@@ -29,8 +29,7 @@ public class changeBillDAO {
     }
     public boolean changeBill(bill bill)throws SQLException {
         String sql="update bill set billname=?,money=?,remark=?,spenttime=?,type=? where billid=?";
-        Connection con=DBHelper.getConnection();
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,bill.getBillName());
         st.setDouble(2,bill.getMoney());
         st.setString(3,bill.getRemark());

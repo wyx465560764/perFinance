@@ -1,3 +1,8 @@
+<%@ page import="entity.product" %>
+<%@ page import="DAO.viewUnfixedIcomeDAO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="DAO.recentMonthIncomeDAO" %>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -87,34 +92,108 @@
             <div style="height: 30px">
                 <span class="layui-breadcrumb">
                     <a href="main.jsp">首页</a>
-                    <a><cite>基金超市</cite></a>
+                    <a href="market-first.jsp">基金超市</a>
+                    <a><cite><%=request.getParameter("type")%></cite></a>
                 </span>
             </div>
         </div>
         <%--<div style="height: 20%">&nbsp</div>--%>
-        <fieldset class="layui-elem-field">
-            <legend>选择投资的基金</legend>
-            <div class="layui-field-box">
-                <fieldset class="layui-elem-field layui-field-title">
-                    <legend>固收型基金</legend>
-                </fieldset>
-                <button class="layui-btn layui-btn-lg">理财型</button>
-                <button class="layui-btn layui-btn-lg">货币型</button>
-            </div>
-            <div class="layui-field-box">
-                <fieldset class="layui-elem-field layui-field-title">
-                    <legend>不定收益型基金</legend>
-                </fieldset>
-                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=股票型&page=1">股票型</a>
-                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=债券型&page=1">债券型</a>
-                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=混合型&page=1">混合型</a>
-                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=指数型&page=1">指数型</a>
-                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=QDII&page=1">QDII</a>
-                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=养老FOF&page=1">养老FOF</a>
-            </div>
-        </fieldset>
-    </div>
+        <table class="layui-table">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>基金名称</th>
+                <th>单位净值</th>
+                <th>剩余可购份数</th>
+                <th>月涨跌幅</th>
+                <th>年涨跌幅</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <%
+                try {
+                    List<product> productList= viewUnfixedIcomeDAO .getInstance().selectUnfixedIcome(request.getParameter("type"));
+                    int RowCount=productList.size();           //记录总数
+                    int PageCount=(RowCount-1)/10+1;          //总页数
+                    int Page=1;               //待显示页码
+                    Page=Integer.parseInt(request.getParameter("page"));
+                    int Num=1;//计数器
+                    double monthIncome;
+                    for (product e:productList)
+                    {
+                        if(Num>(Page-1)*10&&Num<=Page*10){
+            %>
+            <tbody>
+            <tr>
+                <td><%=e.getProductname()%></td>
+                <td><%=e.getNowprice()%></td>
+                <td><%=e.getOver()%></td>
+                <td><%
+                    monthIncome=(e.getNowprice()-recentMonthIncomeDAO.getInstance().monthIncome(e.getProductid(),1))/e.getNowprice();
+                    if(monthIncome==1){
+                        %>
+                    <%=0%>
+                    <%
+                    }else {
+                        %>
+                    <%=String.format("%.2f", monthIncome*100)+"%"%>
+                    <%
+                    }
+                %>
+                </td>
+                <td><%
+                    monthIncome=(e.getNowprice()-recentMonthIncomeDAO.getInstance().monthIncome(e.getProductid(),12))/e.getNowprice();
+                    if(monthIncome==1){
+                %>
+                    <%=0%>
+                    <%
+                    }else {
+                    %>
+                    <%=String.format("%.2f", monthIncome*100)+"%"%>
+                    <%
+                        }
+                    %></td>
+                <td>详细</td>
+            </tr>
+            <%--<%--%>
+                <%--}%>--%>
+            </tbody>
+            <%
+                }
+                }
+            %>
+        </table>
+        <%if(productList.isEmpty()){%>
+        <%="暂无数据"%>
+        <%}%>
+        <div style="text-align: center;">
+            第<%=Page%>页 共<%=PageCount%>页
 
+            <% if(Page>1){ %>
+
+            <a href="wish-detail.jsp?page=<%=Page-1%>" class="layui-btn">上一页</a>
+
+            <% }else{ %>
+            <a class="layui-btn">上一页</a>
+            <%}%>
+            <% if(Page<PageCount){ %>
+
+            <a href="wish-detail.jsp?page=<%=Page+1%>" class="layui-btn">下一页</a>
+
+            <% }else{ %>
+            <a class="layui-btn">下一页</a>
+            <%}%>
+        </div>
+    </div>
+    <%
+        }catch (SQLException s){
+            s.printStackTrace();
+        }
+    %>
     <div class="layui-footer">
         <!-- 底部固定区域 -->
         投资有风险，理财需谨慎

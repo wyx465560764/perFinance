@@ -67,13 +67,13 @@
                     <a class="" href="javascript:;">基金类型</a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;">货币型</a></dd>
+                        <dd><a href="javascript:;">理财型</a></dd>
                         <dd><a href="javascript:;">债券型</a></dd>
                         <dd><a href="javascript:;">QDII</a></dd>
                         <dd><a href="javascript:;">养老FOF</a></dd>
                         <dd><a href="javascript:;">股票型</a></dd>
                         <dd><a href="javascript:;">混合型</a></dd>
                         <dd><a href="javascript:;">指数型</a></dd>
-                        <dd><a href="javascript:;">理财型</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="">我的持仓</a></li>
@@ -99,18 +99,18 @@
                     <legend>固收型基金</legend>
                 </fieldset>
                 <button class="layui-btn layui-btn-lg">理财型</button>
-                <button class="layui-btn layui-btn-lg">债券型</button>
-                <button class="layui-btn layui-btn-lg">养老FOF</button>
-                <button class="layui-btn layui-btn-lg">大型按钮</button>
+                <button class="layui-btn layui-btn-lg">货币型</button>
             </div>
             <div class="layui-field-box">
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>不定收益型基金</legend>
                 </fieldset>
-                <button class="layui-btn layui-btn-lg">大型按钮</button>
-                <button class="layui-btn layui-btn-lg">大型按钮</button>
-                <button class="layui-btn layui-btn-lg">大型按钮</button>
-                <button class="layui-btn layui-btn-lg">大型按钮</button>
+                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=股票型&page=1">股票型</a>
+                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=债券型&page=1">债券型</a>
+                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=混合型&page=1">混合型</a>
+                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=指数型&page=1">指数型</a>
+                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=QDII&page=1">QDII</a>
+                <a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=养老FOF&page=1">养老FOF</a>
             </div>
         </fieldset>
     </div>

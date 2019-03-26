@@ -24,8 +24,7 @@ public class changeWishDAO {
     }
     public boolean changeWish(wish wish)throws SQLException {
         String sql="update wish set wishname=?,money=?,wishstatus=?,plantime=? where wishid=?";
-        Connection con=DBHelper.getConnection();
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,wish.getWishName());
         st.setDouble(2,wish.getMoney());
         st.setInt(3,wish.getWishstatus());

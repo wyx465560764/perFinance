@@ -9,9 +9,8 @@ import entity.wish;
 
 public class deleteWishDAO {
     public boolean deleteWish(wish wish)throws SQLException,Exception{
-        Connection con=DBHelper.getConnection();
         String sql="delete from wish where wishid=?";
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setInt(1,wish.getWishId());
         if(st.executeUpdate()>0){
             st.close();

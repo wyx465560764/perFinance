@@ -19,9 +19,8 @@ public class signUpDAO {
         }
     }
     public boolean emailIsExist(user user)throws SQLException,Exception {
-        Connection con=DBHelper.getConnection();
         String sql="select userid from user where email=?";
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,user.getEmail());
         ResultSet rs=st.executeQuery();
         if(rs.next()){
@@ -32,9 +31,8 @@ public class signUpDAO {
         }
     }
     public boolean signUp(user user)throws SQLException,Exception{
-        Connection con=DBHelper.getConnection();
         String sql="insert into user value(0,?,?,?,2,null,null)";
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,user.getUsername());
         st.setString(2,user.getPassword());
         st.setString(3,user.getEmail());

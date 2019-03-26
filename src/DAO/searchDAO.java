@@ -45,8 +45,7 @@ public class searchDAO {
             sql.append(" and pushtime BETWEEN '"+pushMonthMin+"'and '"+pushMonthMax+"'");
         }
         sql.append("order by spenttime desc");
-        Connection con=DBHelper.getConnection();
-        Statement st=con.createStatement();
+        Statement st=DBHelper.getConnection().createStatement();
         ResultSet rs=st.executeQuery(sql.toString());
         ArrayList<bill> billArrayList=new ArrayList<>();
         while (rs.next()) {

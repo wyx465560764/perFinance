@@ -16,8 +16,7 @@ public class detailDAO {
     public static detailDAO getInstance(){return instance;}
     public List<wish> selectWishByFirst(String userid)throws SQLException{
         String sql = "select * from wish where userid=? order by plantime desc";
-        Connection con=DBHelper.getConnection();
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,userid);
         ResultSet rs=st.executeQuery();
         ArrayList<wish> wishArrayList=new ArrayList<>();
@@ -31,8 +30,7 @@ public class detailDAO {
     }
     public List<bill> selectBillByFirst(String userid)throws SQLException{
         String sql = "select * from bill where userid=? order by spenttime desc";
-        Connection con=DBHelper.getConnection();
-        PreparedStatement st=con.prepareStatement(sql);
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,userid);
         ResultSet rs=st.executeQuery();
         ArrayList<bill> billArrayList=new ArrayList<>();
