@@ -15,7 +15,7 @@ public class userDAO {
 //        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/perfinance?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf-8","root","123456");
         Connection con=DBHelper.getConnection();
 //        System.out.println(con);
-        String sql="select * from user where username=? and password=password(?)";
+        String sql="select * from user where username=? and password=?";
         PreparedStatement st=con.prepareStatement(sql);
         st.setString(1,user.getUsername());
         st.setString(2,user.getPassword());
