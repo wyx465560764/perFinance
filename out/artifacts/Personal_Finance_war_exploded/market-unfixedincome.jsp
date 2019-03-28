@@ -157,7 +157,7 @@
                     <%
                         }
                     %></td>
-                <td>详细</td>
+                <td><a class="layui-btn layui-btn-normal layui-btn-sm" href="unfixed-income-detail.jsp?productid=<%=e.getProductid()%>">详细</a></td>
             </tr>
             <%--<%--%>
                 <%--}%>--%>

@@ -102,187 +102,220 @@
             <legend>基金详情</legend>
             <div class="layui-field-box">
                 <div style="padding: 20px; background-color: #F2F2F2;">
-                <div class="layui-row layui-col-space15">
-                    <div class="layui-col-md6">
-                        <div class="layui-card">
-                            <%
-                                try {
-                                    List<earn> monthlist=unfixedIncomedetailDAO.getInstance().selectUnfixedIncome(Integer.valueOf(request.getParameter("productid")),1);
-                            %>
-                            <div class="layui-card-header">近一个月收益变化</div>
-                            <div class="layui-card-body">
-                                <div id="container1" style="height: 250%"></div>
-                                <script type="text/javascript" src="js/echarts.common.min.js"></script>
-                                <script type="text/javascript">
-                                    var dom = document.getElementById("container1");
-                                    var myChart = echarts.init(dom);
-                                    var app = {};
-                                    option = null;
-                                    option = {
-                                        xAxis: {
-                                            type: 'category',
-                                            boundaryGap: false,
-                                            data: [
-                                                <%
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-md6">
+                            <div class="layui-card">
+                                <%
+                                    try {
+                                        List<earn> monthlist=unfixedIncomedetailDAO.getInstance().selectUnfixedIncome(Integer.valueOf(request.getParameter("productid")),1);
+                                %>
+                                <div class="layui-card-header">近一个月收益变化</div>
+                                <div class="layui-card-body">
+                                    <div id="container1" style="height: 250%"></div>
+                                    <script type="text/javascript" src="js/echarts.common.min.js"></script>
+                                    <script type="text/javascript">
+                                        var dom = document.getElementById("container1");
+                                        var myChart = echarts.init(dom);
+                                        var app = {};
+                                        option = null;
+                                        option = {
+                                            xAxis: {
+                                                type: 'category',
+                                                boundaryGap: false,
+                                                data: [
+                                                    <%
                                                 for(earn et:monthlist){
 
                                                 %>
-                                                '<%=et.getPushtime()%>',
-                                                <%
+                                                    '<%=et.getPushtime()%>',
+                                                    <%
                                                 }
                                                 %>]
-                                        },
-                                        yAxis: {
-                                            type: 'value'
-                                        },
-                                        series: [{
-                                            data: [
-                                                <%
+                                            },
+                                            yAxis: {
+                                                type: 'value'
+                                            },
+                                            series: [{
+                                                data: [
+                                                    <%
                                                 for(earn ep:monthlist){
                                                 %>
-                                                '<%=ep.getPrice()%>',
-                                                <%
+                                                    '<%=ep.getPrice()%>',
+                                                    <%
                                                 }
                                                 %>],
-                                            type: 'line',
-                                            areaStyle: {},
-                                            itemStyle : { normal: {label : {show: true}}}
-                                        }]
-                                    };
-                                    if (option && typeof option === "object") {
-                                        myChart.setOption(option, true);
-                                    }
-                                </script>
+                                                type: 'line',
+                                                areaStyle: {},
+                                                itemStyle : { normal: {label : {show: true}}}
+                                            }]
+                                        };
+                                        if (option && typeof option === "object") {
+                                            myChart.setOption(option, true);
+                                        }
+                                    </script>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="layui-col-md6">
-                        <div class="layui-card">
-                            <div class="layui-card-header">近一年收益变化</div>
-                            <%
-                                List<earn> yearlist=unfixedIncomedetailDAO.getInstance().selectUnfixedIncome(Integer.valueOf(request.getParameter("productid")),12);
-                            %>
-                            <div class="layui-card-body">
-                                <div id="container2" style="height: 250%"></div>
-                                <script type="text/javascript" src="js/echarts.common.min.js"></script>
-                                <script type="text/javascript">
-                                    var dom = document.getElementById("container2");
-                                    var myChart = echarts.init(dom);
-                                    var app = {};
-                                    option = null;
-                                    option = {
-                                        xAxis: {
-                                            type: 'category',
-                                            boundaryGap: false,
-                                            data: [
-                                                <%
+                        <div class="layui-col-md6">
+                            <div class="layui-card">
+                                <div class="layui-card-header">近一年收益变化</div>
+                                <%
+                                    List<earn> yearlist=unfixedIncomedetailDAO.getInstance().selectUnfixedIncome(Integer.valueOf(request.getParameter("productid")),12);
+                                %>
+                                <div class="layui-card-body">
+                                    <div id="container2" style="height: 250%"></div>
+                                    <script type="text/javascript" src="js/echarts.common.min.js"></script>
+                                    <script type="text/javascript">
+                                        var dom = document.getElementById("container2");
+                                        var myChart = echarts.init(dom);
+                                        var app = {};
+                                        option = null;
+                                        option = {
+                                            xAxis: {
+                                                type: 'category',
+                                                boundaryGap: false,
+                                                data: [
+                                                    <%
                                                 for(earn ey:yearlist){
                                                 %>
-                                                '<%=ey.getPushtime()%>',
-                                                <%
+                                                    '<%=ey.getPushtime()%>',
+                                                    <%
                                                 }
                                                 %>]
-                                        },
-                                        yAxis: {
-                                            type: 'value'
-                                        },
-                                        series: [{
-                                            data: [
-                                                <%
+                                            },
+                                            yAxis: {
+                                                type: 'value'
+                                            },
+                                            series: [{
+                                                data: [
+                                                    <%
                                                 for(earn eyp:yearlist){
                                                 %>
-                                                '<%=eyp.getPrice()%>',
-                                                <%
+                                                    '<%=eyp.getPrice()%>',
+                                                    <%
                                                 }
                                                 %>],
-                                            type: 'line',
-                                            areaStyle: {},
-                                            itemStyle : { normal: {label : {show: true}}}
-                                        }]
-                                    };
-                                    if (option && typeof option === "object") {
-                                        myChart.setOption(option, true);
-                                    }
+                                                type: 'line',
+                                                areaStyle: {},
+                                                itemStyle : { normal: {label : {show: true}}}
+                                            }]
+                                        };
+                                        if (option && typeof option === "object") {
+                                            myChart.setOption(option, true);
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md12">
+                            <div class="layui-card">
+                                <%
+                                    productDetail productDetail=unfixedIncomedetailDAO.getInstance().selecteproductDetail(Integer.valueOf(request.getParameter("productid")));
+                                %>
+                                <div class="layui-card-header">基金档案</div>
+                                <div class="layui-card-body">
+                                    <div class="layui-row">
+                                        <div class="layui-col-xs6">
+                                            基金全称：<%=productDetail.getProductname()%>
+                                        </div>
+                                        <div class="layui-col-xs3">
+                                            基金类型：<%=productDetail.getType()%>
+                                        </div>
+                                        <div class="layui-col-xs3">
+                                            基金收益类型：<%if(productDetail.getEarntype()==1){%>
+                                            <%="固收"%>
+                                            <%}else {%>
+                                            <%="不定收益"%>
+                                            <%}%>
+                                        </div>
+                                    </div>
+                                    <div class="layui-row">
+                                        <div class="layui-col-xs3">
+                                            最新基金规模(元)：<%=productDetail.getNowprice()*productDetail.getSum()%>
+                                        </div>
+                                        <div class="layui-col-xs3">
+                                            最新单位净值(元)：<%=productDetail.getNowprice()%>
+                                        </div>
+                                        <div class="layui-col-xs3">
+                                            份额总数：<%=productDetail.getSum()%>
+                                        </div>
+                                        <div class="layui-col-xs3">
+                                            剩余可购份额数：<%=productDetail.getOver()%>
+                                        </div>
+                                    </div>
+                                    <div class="layui-row">
+                                        <div class="layui-col-xs4">
+                                            预期年化收益率（仅供参考）：<%=productDetail.getExpectedincome()%>
+                                        </div>
+                                        <div class="layui-col-xs8">
+                                            备注：<%=productDetail.getRemark()%>
+                                        </div>
+                                    </div>
+                                    <div class="layui-row">
+                                        <div class="layui-col-xs4">
+                                            基金经理姓名：<%=productDetail.getUsername()%>
+                                        </div>
+                                        <div class="layui-col-xs8">
+                                            基金经理简介：<%=productDetail.getManagercontext()%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md12">
+                            <div class="layui-card">
+                                <div class="layui-card-header">认购</div>
+                                <script src="layui.js" charset="utf-8"></script>
+                                <script>
+                                    layui.use(['form', 'layedit', 'laydate'], function(){
+                                        var form = layui.form
+                                            ,layer = layui.layer
+                                            ,layedit = layui.layedit
+                                            ,laydate = layui.laydate;
+                                        //监听提交
+                                        form.on('submit(demo1)', function(data){
+                                            layer.alert(JSON.stringify(data.field), {
+                                                title: '最终的提交信息'
+                                            })
+                                            return false;
+                                        });
+                                    });
                                 </script>
+                                <form class="layui-form" action="submitorder" method="post">
+                                    <div class="layui-card-body">
+                                        <div class="layui-form-item">
+                                            <div class="layui-inline">
+                                                <label class="layui-form-label">认购份数</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="number" lay-verify="required|number" autocomplete="off" class="layui-input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <div class="layui-inline">
+                                                <label class="layui-form-label">该账户实名认证身份证</label>
+                                                <div class="layui-input-inline">
+                                                    <input type="text" name="identity" lay-verify="required|identity" autocomplete="off" class="layui-input">
+                                                </div>
+                                            </div>
+                                            没有实名认证？立即实名认证
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="productid" value="<%=request.getParameter("productid")%>">
+                                    <%--</div>--%>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn layui-btn-danger" lay-submit="">立即提交</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <%--<a class="layui-btn layui-btn-fluid layui-btn-lg  layui-btn-radius">立即认购</a>--%>
                             </div>
                         </div>
                     </div>
-                    <div class="layui-col-md12">
-                        <div class="layui-card">
-                            <%
-                                productDetail productDetail=unfixedIncomedetailDAO.getInstance().selecteproductDetail(Integer.valueOf(request.getParameter("productid")));
-                            %>
-                            <div class="layui-card-header">基金档案</div>
-                            <div class="layui-card-body">
-                                <div class="layui-row">
-                                    <div class="layui-col-xs6">
-                                        基金全称：<%=productDetail.getProductname()%>
-                                    </div>
-                                    <div class="layui-col-xs3">
-                                        基金类型：<%=productDetail.getType()%>
-                                    </div>
-                                    <div class="layui-col-xs3">
-                                        基金收益类型：<%if(productDetail.getEarntype()==1){%>
-                                        <%="固收"%>
-                                        <%}else {%>
-                                        <%="不定收益"%>
-                                        <%}%>
-                                    </div>
-                                </div>
-                                <div class="layui-row">
-                                    <div class="layui-col-xs3">
-                                        最新基金规模：<%=productDetail.getNowprice()*productDetail.getSum()%>
-                                    </div>
-                                    <div class="layui-col-xs3">
-                                        最新单位净值：<%=productDetail.getNowprice()%>
-                                    </div>
-                                    <div class="layui-col-xs3">
-                                        份额总数：<%=productDetail.getSum()%>
-                                    </div>
-                                    <div class="layui-col-xs3">
-                                        剩余可购份额数：<%=productDetail.getOver()%>
-                                    </div>
-                                </div>
-                                <div class="layui-row">
-                                    <div class="layui-col-xs4">
-                                        预期年化收益率（仅供参考）：<%=productDetail.getExpectedincome()%>
-                                    </div>
-                                    <div class="layui-col-xs8">
-                                        备注：<%=productDetail.getRemark()%>
-                                    </div>
-                                </div>
-                                <div class="layui-row">
-                                    <div class="layui-col-xs4">
-                                        基金经理姓名：<%=productDetail.getUsername()%>
-                                    </div>
-                                    <div class="layui-col-xs8">
-                                        基金经理简介：<%=productDetail.getManagercontext()%>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </div>
-            <%--<div class="layui-field-box">--%>
-                <%--<fieldset class="layui-elem-field layui-field-title">--%>
-                    <%--<legend>固收型基金</legend>--%>
-                <%--</fieldset>--%>
-                <%--<button class="layui-btn layui-btn-lg">理财型</button>--%>
-                <%--<button class="layui-btn layui-btn-lg">货币型</button>--%>
-            <%--</div>--%>
-            <%--<div class="layui-field-box">--%>
-                <%--<fieldset class="layui-elem-field layui-field-title">--%>
-                    <%--<legend>不定收益型基金</legend>--%>
-                <%--</fieldset>--%>
-                <%--<a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=股票型&page=1">股票型</a>--%>
-                <%--<a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=债券型&page=1">债券型</a>--%>
-                <%--<a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=混合型&page=1">混合型</a>--%>
-                <%--<a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=指数型&page=1">指数型</a>--%>
-                <%--<a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=QDII&page=1">QDII</a>--%>
-                <%--<a class="layui-btn layui-btn-lg" href="market-unfixedincome.jsp?type=养老FOF&page=1">养老FOF</a>--%>
-            <%--</div>--%>
         </fieldset>
     </div>
 
@@ -296,7 +329,6 @@
         投资有风险，理财需谨慎
     </div>
 </div>
-<script src="layui.js"></script>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){
@@ -306,3 +338,4 @@
 </script>
 </body>
 </html>
+i
