@@ -109,8 +109,7 @@
                 <th>基金名称</th>
                 <th>单位净值(元)</th>
                 <th>剩余可购份数</th>
-                <th>月涨跌幅</th>
-                <th>年涨跌幅</th>
+                <th>年化收益率</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -132,38 +131,14 @@
                 <td><%=e.getProductname()%></td>
                 <td><%=e.getNowprice()%></td>
                 <td><%=e.getOver()%></td>
-                <td><%
-                    monthIncome=(e.getNowprice()-recentMonthIncomeDAO.getInstance().monthIncome(e.getProductid(),1))/e.getNowprice();
-                    if(monthIncome==1){
-                        %>
-                    <%=0%>
-                    <%
-                    }else {
-                        %>
-                    <%=String.format("%.2f", monthIncome*100)+"%"%>
-                    <%
-                    }
-                %>
-                </td>
-                <td><%
-                    monthIncome=(e.getNowprice()-recentMonthIncomeDAO.getInstance().monthIncome(e.getProductid(),12))/e.getNowprice();
-                    if(monthIncome==1){
-                %>
-                    <%=0%>
-                    <%
-                    }else {
-                    %>
-                    <%=String.format("%.2f", monthIncome*100)+"%"%>
-                    <%
-                        }
-                    %></td>
+                <td><%=e.getExpectedincome()+"%"%></td>
                 <td><a class="layui-btn layui-btn-normal layui-btn-sm" href="unfixed-income-detail.jsp?productid=<%=e.getProductid()%>">详细</a></td>
             </tr>
             <%--<%--%>
-                <%--}%>--%>
+            <%--}%>--%>
             </tbody>
             <%
-                }
+                    }
                 }
             %>
         </table>

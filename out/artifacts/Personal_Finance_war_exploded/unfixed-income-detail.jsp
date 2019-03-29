@@ -279,16 +279,25 @@
                                             })
                                             return false;
                                         });
+                                        //自定义验证规则
+                                        form.verify({
+                                            contact: function(value){
+                                                if(value><%=productDetail.getOver()*productDetail.getNowprice()%>){
+                                                    return '超出可认购数量';
+                                                }
+                                            }
+                                        });
                                     });
                                 </script>
                                 <form class="layui-form" action="submitorder" method="post">
                                     <div class="layui-card-body">
                                         <div class="layui-form-item">
                                             <div class="layui-inline">
-                                                <label class="layui-form-label">认购份数</label>
+                                                <label class="layui-form-label">投入资金</label>
                                                 <div class="layui-input-inline">
-                                                    <input type="text" name="number" lay-verify="required|number" autocomplete="off" class="layui-input">
+                                                    <input type="text" name="number" lay-verify="required|number|contact" autocomplete="off" class="layui-input" >
                                                 </div>
+                                                元
                                             </div>
                                         </div>
                                         <div class="layui-form-item">

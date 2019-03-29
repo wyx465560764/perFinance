@@ -98,8 +98,8 @@
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>固收型基金</legend>
                 </fieldset>
-                <button class="layui-btn layui-btn-lg">理财型</button>
-                <button class="layui-btn layui-btn-lg">货币型</button>
+                <a class="layui-btn layui-btn-lg" href="market-fixedincome.jsp?type=理财型&page=1">理财型</a>
+                <a class="layui-btn layui-btn-lg" href="market-fixedincome.jsp?type=货币型&page=1">货币型</a>
             </div>
             <div class="layui-field-box">
                 <fieldset class="layui-elem-field layui-field-title">

@@ -9,9 +9,9 @@ import java.util.List;
 import dbtool.DBHelper;
 import entity.product;
 
-public class viewUnfixedIcomeDAO {
-    private static viewUnfixedIcomeDAO instance=new viewUnfixedIcomeDAO();
-    public static viewUnfixedIcomeDAO getInstance(){return instance;}
+public class viewIncomeDAO {
+    private static viewIncomeDAO instance=new viewIncomeDAO();
+    public static viewIncomeDAO getInstance(){return instance;}
     public List<product> selectUnfixedIcome(String type)throws SQLException {
         String sql="select * from product where type=?";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);

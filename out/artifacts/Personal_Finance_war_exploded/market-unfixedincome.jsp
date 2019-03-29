@@ -1,5 +1,5 @@
 <%@ page import="entity.product" %>
-<%@ page import="DAO.viewUnfixedIcomeDAO" %>
+<%@ page import="DAO.viewIncomeDAO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="DAO.recentMonthIncomeDAO" %>
@@ -107,7 +107,7 @@
             <thead>
             <tr>
                 <th>基金名称</th>
-                <th>单位净值</th>
+                <th>单位净值(元)</th>
                 <th>剩余可购份数</th>
                 <th>月涨跌幅</th>
                 <th>年涨跌幅</th>
@@ -116,7 +116,7 @@
             </thead>
             <%
                 try {
-                    List<product> productList= viewUnfixedIcomeDAO .getInstance().selectUnfixedIcome(request.getParameter("type"));
+                    List<product> productList= viewIncomeDAO.getInstance().selectUnfixedIcome(request.getParameter("type"));
                     int RowCount=productList.size();           //记录总数
                     int PageCount=(RowCount-1)/10+1;          //总页数
                     int Page=1;               //待显示页码
