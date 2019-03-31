@@ -58,7 +58,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="product-earn.jsp?page=1">基金收益管理</a></dd>
                         <dd><a href="product-review.jsp?status=1&page=1">买入审核</a></dd>
-                        <dd><a href="product-review.jsp?status=2&page=1">卖出审核</a></dd>
+                        <dd><a href="product-review.jsp?status=3&page=1">卖出审核</a></dd>
                     </dl>
                 </li>
                 <%--<li class="layui-nav-item">--%>

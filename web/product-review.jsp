@@ -1,4 +1,7 @@
-<%--
+<%@ page import="entity.position" %>
+<%@ page import="DAO.reviewOrderDAO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
   User: wyx
   Date: 2019/3/18
@@ -55,7 +58,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="product-earn.jsp?page=1">基金收益管理</a></dd>
                         <dd><a href="product-review.jsp?status=1&page=1">买入审核</a></dd>
-                        <dd><a href="product-review.jsp?status=2&page=1">卖出审核</a></dd>
+                        <dd><a href="product-review.jsp?status=3&page=1">卖出审核</a></dd>
                     </dl>
                 </li>
                 <%--<li class="layui-nav-item">--%>
@@ -72,8 +75,98 @@
     </div>
 
     <div class="layui-body">
-        <!-- 内容主体区域 -->
-        <div style="padding: 15px;">内容主体区域</div>
+        <div style="padding: 20px; background-color: #F2F2F2;">
+            <div style="height: 30px">
+                <span class="layui-breadcrumb">
+                    <a href="main.jsp">首页</a>
+                    <a href="background.jsp">基金经理后台</a>
+                    <a><cite><%if(request.getParameter("status").equals("1")){ %>买入审核
+                    <%}else if(request.getParameter("status").equals("3")){%>卖出审核
+                    <%}%></cite></a>
+                </span>
+            </div>
+        </div>
+        <div style="height: 30px"></div>
+        <fieldset class="layui-elem-field">
+            <legend>买入审核</legend>
+            <div class="layui-field-box">
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="150">
+                        <col width="200">
+                        <col>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>基金名称</th>
+                        <th>买入单价</th>
+                        <th>买入份数</th>
+                        <th>认购总价值</th>
+                        <th>申请时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%
+                        try {
+                            List<position> positionList= reviewOrderDAO.getInstance().viewReview(Integer.valueOf(request.getParameter("status")),Integer.valueOf(session.getAttribute("userid").toString()));
+                            int RowCount=positionList.size();           //记录总数
+                            int PageCount=(RowCount-1)/10+1;          //总页数
+                            int Page=1;               //待显示页码
+                            Page=Integer.parseInt(request.getParameter("page"));
+                            int Num=1;//计数器
+                            String status;
+                            int statusNum;
+                            for (position e:positionList)
+                            {
+                                if(Num>(Page-1)*10&&Num<=Page*10){
+                    %>
+                    <tr>
+                        <td><%=e.getProductname()%></td>
+                        <td><%=e.getBuyprice()%></td>
+                        <td><%=String.format("%.2f",e.getBuynum())%></td>
+                        <td><%=e.getBuysum()%></td>
+                        <td><%if(Integer.valueOf(request.getParameter("status"))==1){%>
+                            <%=e.getPushtime()%>
+                            <%}else if(Integer.valueOf(request.getParameter("status"))==1){%>
+                            <%=e.getSelltime()%>
+                            <%}%>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    </tbody>
+                    <%
+                            }
+                        }
+                    %>
+                </table>
+                <%if(positionList.isEmpty()){%>
+                <%="暂无数据"%>
+                <%}%>
+                <div style="text-align: center;">
+                    第<%=Page%>页 共<%=PageCount%>页
+
+                    <% if(Page>1){ %>
+
+                    <a href="user-position.jsp?page=<%=Page-1%>" class="layui-btn">上一页</a>
+
+                    <% }else{ %>
+                    <a class="layui-btn">上一页</a>
+                    <%}%>
+                    <% if(Page<PageCount){ %>
+
+                    <a href="user-position.jsp?page=<%=Page+1%>" class="layui-btn">下一页</a>
+
+                    <% }else{ %>
+                    <a class="layui-btn">下一页</a>
+                    <%}%>
+                <%
+        }catch (SQLException s){
+        s.printStackTrace();
+    }
+    %>
+            </div>
+        </fieldset>
     </div>
 
     <div class="layui-footer">

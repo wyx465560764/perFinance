@@ -39,7 +39,7 @@
 	<li class="layui-nav-item layui-this">
 		<a href="javascript:;">基金超市</a>
 		<dl class="layui-nav-child">
-			<dd><a href="">我的持仓</a></dd>
+			<dd><a href="user-position.jsp?page=1">我的持仓</a></dd>
 			<dd><a href="market-first.jsp">全部基金</a></dd>
 			<dd class="layui-this"><a href="">收益</a></dd>
 			<%--<dd><a href="">电商平台</a></dd>--%>

@@ -1,8 +1,8 @@
-<%@ page import="entity.product" %>
-<%@ page import="DAO.viewIncomeDAO" %>
+<%@ page import="entity.position" %>
+<%@ page import="DAO.viewPositionDAO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="DAO.recentMonthIncomeDAO" %>
+<%@ page import="java.util.Date" %>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -93,7 +93,7 @@
                 <span class="layui-breadcrumb">
                     <a href="main.jsp">首页</a>
                     <a href="market-first.jsp">基金超市</a>
-                    <a><cite><%=request.getParameter("type")%></cite></a>
+                    <a><cite>我的持仓</cite></a>
                 </span>
             </div>
         </div>
@@ -107,41 +107,71 @@
             <thead>
             <tr>
                 <th>基金名称</th>
-                <th>单位净值(元)</th>
-                <th>剩余可购份数</th>
-                <th>年化收益率</th>
+                <th>基金类型</th>
+                <th>收益类型</th>
+                <th>购入时单位净值(元)</th>
+                <th>持有金额(元)</th>
+                <th>累计收益(元)</th>
+                <th>订单状态</th>
                 <th>操作</th>
             </tr>
             </thead>
+            <tbody>
             <%
                 try {
-                    List<product> productList= viewIncomeDAO.getInstance().selectUnfixedIcome(request.getParameter("type"));
-                    int RowCount=productList.size();           //记录总数
+                    List<position> positionList= viewPositionDAO.getInstance().selectPosition(Integer.valueOf(session.getAttribute("userid").toString()));
+                    int RowCount=positionList.size();           //记录总数
                     int PageCount=(RowCount-1)/10+1;          //总页数
                     int Page=1;               //待显示页码
                     Page=Integer.parseInt(request.getParameter("page"));
                     int Num=1;//计数器
-                    for (product e:productList)
+                    for (position e:positionList)
                     {
                         if(Num>(Page-1)*10&&Num<=Page*10){
             %>
-            <tbody>
             <tr>
-                <td><%=e.getProductname()%></td>
-                <td><%=e.getNowprice()%></td>
-                <td><%=e.getOver()%></td>
-                <td><%=e.getExpectedincome()+"%"%></td>
-                <td><a class="layui-btn layui-btn-normal layui-btn-sm" href="fixed-income-detail.jsp?productid=<%=e.getProductid()%>">详细</a></td>
+                <th><%=e.getProductname()%></th>
+                <th><%=e.getType()%></th>
+                <th><%if(e.getEarntype()==1){%><%="固收"%>
+                <%}else if(e.getEarntype()==2){%><%="不定收益"%><%}%>
+                </th>
+                <th><%=e.getBuyprice()%></th>
+                <th><%=String.format("%.2f",e.getNowprice()*e.getBuynum())%></th>
+                <th><%if(e.getOrderstatus()==2&&e.getEarntype()==2){%>
+                <%=String.format("%.2f",(e.getNowprice()-e.getBuyprice())*e.getBuynum())%>
+                <%}else if(e.getOrderstatus()==2&&e.getEarntype()==1){
+                    int days = (int) ((new Date().getTime() - e.getPushtime().getTime()) / (1000*3600*24));
+                %>
+                <%=String.format("%.2f",(days*e.getExpectedincome())/365)%>
+                <%}%></th>
+                <th><%if(e.getOrderstatus()==1){%>
+                    <%="申购审核中"%>
+                    <%}else if(e.getOrderstatus()==2){%>
+                    <%="持有"%>
+                    <%}else if(e.getOrderstatus()==3){%>
+                    <%="申请赎回中"%>
+                    <%}else if(e.getOrderstatus()==4){%>
+                    <%="赎回完成"%>
+                    <%}else if(e.getOrderstatus()==5){%>
+                    <%="申购失败"%>
+                    <%}%>
+                </th>
+                <th><%if(e.getOrderstatus()==1){%>
+                    <button class="layui-btn layui-btn-danger layui-btn-sm">取消申购</button>
+                    <%}else if(e.getOrderstatus()==2){%>
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">卖出</button>
+                    <%}else if(e.getOrderstatus()==3){%>
+                    <button class="layui-btn layui-btn-danger layui-btn-sm">取消赎回</button>
+                    <%}%>
+                </th>
             </tr>
-            <%--<%--%>
-            <%--}%>--%>
-            </tbody>
             <%
                     }
                 }
             %>
+            </tbody>
         </table>
-        <%if(productList.isEmpty()){%>
+        <%if(positionList.isEmpty()){%>
         <%="暂无数据"%>
         <%}%>
         <div style="text-align: center;">
@@ -149,14 +179,14 @@
 
             <% if(Page>1){ %>
 
-            <a href="market-fixedincome.jsp?page=<%=Page-1%>" class="layui-btn">上一页</a>
+            <a href="user-position.jsp?page=<%=Page-1%>" class="layui-btn">上一页</a>
 
             <% }else{ %>
             <a class="layui-btn">上一页</a>
             <%}%>
             <% if(Page<PageCount){ %>
 
-            <a href="market-fixedincome.jsp?page=<%=Page+1%>" class="layui-btn">下一页</a>
+            <a href="user-position.jsp?page=<%=Page+1%>" class="layui-btn">下一页</a>
 
             <% }else{ %>
             <a class="layui-btn">下一页</a>
@@ -165,8 +195,8 @@
     </div>
     <%
         }catch (SQLException s){
-            s.printStackTrace();
-        }
+        s.printStackTrace();
+    }
     %>
     <div class="layui-footer">
         <!-- 底部固定区域 -->

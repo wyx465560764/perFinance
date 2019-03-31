@@ -58,7 +58,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="product-earn.jsp?page=1">基金收益管理</a></dd>
                         <dd><a href="product-review.jsp?status=1&page=1">买入审核</a></dd>
-                        <dd><a href="product-review.jsp?status=2&page=1">卖出审核</a></dd>
+                        <dd><a href="product-review.jsp?status=3&page=1">卖出审核</a></dd>
                     </dl>
                 </li>
                 <%--<li class="layui-nav-item">--%>
@@ -75,6 +75,15 @@
     </div>
 
     <div class="layui-body">
+        <div style="padding: 20px; background-color: #F2F2F2;">
+            <div style="height: 30px">
+                <span class="layui-breadcrumb">
+                    <a href="main.jsp">首页</a>
+                    <a href="background.jsp">基金经理后台</a>
+                    <a><cite>收益管理</cite></a>
+                </span>
+            </div>
+        </div>
         <!-- 内容主体区域 -->
         <div style="height: 30px"></div>
         <fieldset class="layui-elem-field">

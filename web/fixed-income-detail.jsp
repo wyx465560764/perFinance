@@ -102,111 +102,11 @@
             <legend>基金详情</legend>
             <div class="layui-field-box">
                 <div style="padding: 20px; background-color: #F2F2F2;">
+                    <%
+                        try {
+                            List<earn> monthlist=unfixedIncomedetailDAO.getInstance().selectUnfixedIncome(Integer.valueOf(request.getParameter("productid")),1);
+                    %>
                     <div class="layui-row layui-col-space15">
-                        <div class="layui-col-md6">
-                            <div class="layui-card">
-                                <%
-                                    try {
-                                        List<earn> monthlist=unfixedIncomedetailDAO.getInstance().selectUnfixedIncome(Integer.valueOf(request.getParameter("productid")),1);
-                                %>
-                                <div class="layui-card-header">近一个月收益变化</div>
-                                <div class="layui-card-body">
-                                    <div id="container1" style="height: 250%"></div>
-                                    <script type="text/javascript" src="js/echarts.common.min.js"></script>
-                                    <script type="text/javascript">
-                                        var dom = document.getElementById("container1");
-                                        var myChart = echarts.init(dom);
-                                        var app = {};
-                                        option = null;
-                                        option = {
-                                            xAxis: {
-                                                type: 'category',
-                                                boundaryGap: false,
-                                                data: [
-                                                    <%
-                                                for(earn et:monthlist){
-
-                                                %>
-                                                    '<%=et.getPushtime()%>',
-                                                    <%
-                                                }
-                                                %>]
-                                            },
-                                            yAxis: {
-                                                type: 'value'
-                                            },
-                                            series: [{
-                                                data: [
-                                                    <%
-                                                for(earn ep:monthlist){
-                                                %>
-                                                    '<%=ep.getPrice()%>',
-                                                    <%
-                                                }
-                                                %>],
-                                                type: 'line',
-                                                areaStyle: {},
-                                                itemStyle : { normal: {label : {show: true}}}
-                                            }]
-                                        };
-                                        if (option && typeof option === "object") {
-                                            myChart.setOption(option, true);
-                                        }
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="layui-col-md6">
-                            <div class="layui-card">
-                                <div class="layui-card-header">近一年收益变化</div>
-                                <%
-                                    List<earn> yearlist=unfixedIncomedetailDAO.getInstance().selectUnfixedIncome(Integer.valueOf(request.getParameter("productid")),12);
-                                %>
-                                <div class="layui-card-body">
-                                    <div id="container2" style="height: 250%"></div>
-                                    <script type="text/javascript" src="js/echarts.common.min.js"></script>
-                                    <script type="text/javascript">
-                                        var dom = document.getElementById("container2");
-                                        var myChart = echarts.init(dom);
-                                        var app = {};
-                                        option = null;
-                                        option = {
-                                            xAxis: {
-                                                type: 'category',
-                                                boundaryGap: false,
-                                                data: [
-                                                    <%
-                                                for(earn ey:yearlist){
-                                                %>
-                                                    '<%=ey.getPushtime()%>',
-                                                    <%
-                                                }
-                                                %>]
-                                            },
-                                            yAxis: {
-                                                type: 'value'
-                                            },
-                                            series: [{
-                                                data: [
-                                                    <%
-                                                for(earn eyp:yearlist){
-                                                %>
-                                                    '<%=eyp.getPrice()%>',
-                                                    <%
-                                                }
-                                                %>],
-                                                type: 'line',
-                                                areaStyle: {},
-                                                itemStyle : { normal: {label : {show: true}}}
-                                            }]
-                                        };
-                                        if (option && typeof option === "object") {
-                                            myChart.setOption(option, true);
-                                        }
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
                         <div class="layui-col-md12">
                             <div class="layui-card">
                                 <%

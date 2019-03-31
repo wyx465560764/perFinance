@@ -30,7 +30,7 @@
             <li class="layui-nav-item layui-this">
                 <a href="javascript:;">基金超市</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">我的持仓</a></dd>
+                    <dd><a href="user-position.jsp?page=1">我的持仓</a></dd>
                     <dd><a href="">全部基金</a></dd>
                     <dd class="layui-this"><a href="">我的收益</a></dd>
                     <%--<dd><a href="">电商平台</a></dd>--%>
@@ -81,7 +81,7 @@
                         <dd><a href="javascript:;">指数型</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">我的持仓</a></li>
+                <li class="layui-nav-item"><a href="user-position.jsp?page=1">我的持仓</a></li>
                 <li class="layui-nav-item"><a href="">我的收益</a></li>
             </ul>
         </div>
@@ -121,7 +121,6 @@
                     int Page=1;               //待显示页码
                     Page=Integer.parseInt(request.getParameter("page"));
                     int Num=1;//计数器
-                    double monthIncome;
                     for (product e:productList)
                     {
                         if(Num>(Page-1)*10&&Num<=Page*10){
@@ -132,7 +131,7 @@
                 <td><%=e.getNowprice()%></td>
                 <td><%=e.getOver()%></td>
                 <td><%=e.getExpectedincome()+"%"%></td>
-                <td><a class="layui-btn layui-btn-normal layui-btn-sm" href="unfixed-income-detail.jsp?productid=<%=e.getProductid()%>">详细</a></td>
+                <td><a class="layui-btn layui-btn-normal layui-btn-sm" href="fixed-income-detail.jsp?productid=<%=e.getProductid()%>">详细</a></td>
             </tr>
             <%--<%--%>
             <%--}%>--%>
@@ -150,14 +149,14 @@
 
             <% if(Page>1){ %>
 
-            <a href="wish-detail.jsp?page=<%=Page-1%>" class="layui-btn">上一页</a>
+            <a href="market-fixedincome.jsp?page=<%=Page-1%>" class="layui-btn">上一页</a>
 
             <% }else{ %>
             <a class="layui-btn">上一页</a>
             <%}%>
             <% if(Page<PageCount){ %>
 
-            <a href="wish-detail.jsp?page=<%=Page+1%>" class="layui-btn">下一页</a>
+            <a href="market-fixedincome.jsp?page=<%=Page+1%>" class="layui-btn">下一页</a>
 
             <% }else{ %>
             <a class="layui-btn">下一页</a>
