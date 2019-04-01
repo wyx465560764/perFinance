@@ -19,14 +19,16 @@ public class viewPositionDAO {
                 " product.earntype," +
                 " product.nowprice," +
                 " product.expectedincome," +
+                " order.orderid," +
                 " order.orderstatus," +
                 " order.selltime," +
                 " order.pushtime," +
                 " order.buysum," +
                 " order.buyprice," +
-                " order.buynum" +
+                " order.buynum," +
+                " order.sellprice" +
                 " FROM product,`order`" +
-                " WHERE `order`.userid=? and product.productid=`order`.productid";
+                " WHERE `order`.userid=? and product.productid=`order`.productid order by orderid desc ";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setInt(1,userid);
         ResultSet rs=st.executeQuery();
@@ -46,12 +48,14 @@ public class viewPositionDAO {
         position.setEarntype(rs.getInt("earntype"));
         position.setNowprice(rs.getDouble("nowprice"));
         position.setExpectedincome(rs.getDouble("expectedincome"));
+        position.setOrderid(rs.getInt("orderid"));
         position.setOrderstatus(rs.getInt("orderstatus"));
         position.setSelltime(rs.getDate("selltime"));
         position.setPushtime(rs.getDate("pushtime"));
         position.setBuysum(rs.getDouble("buysum"));
         position.setBuyprice(rs.getDouble("buyprice"));
         position.setBuynum(rs.getDouble("buynum"));
+        position.setSellprice(rs.getDouble("sellprice"));
         return position;
     }
 }

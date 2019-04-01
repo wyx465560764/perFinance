@@ -8,12 +8,31 @@ public class position {
     int earntype;
     double nowprice;
     double expectedincome;
+    int orderid;
     int orderstatus;
     double buyprice;
     double buynum;
     double buysum;
     Date pushtime;
     Date selltime;
+
+    public double getSellprice() {
+        return sellprice;
+    }
+
+    public void setSellprice(double sellprice) {
+        this.sellprice = sellprice;
+    }
+
+    double sellprice;
+
+    public int getOrderid() {
+        return orderid;
+    }
+
+    public void setOrderid(int orderid) {
+        this.orderid = orderid;
+    }
 
     public String getProductname() {
         return productname;

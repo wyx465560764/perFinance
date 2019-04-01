@@ -13,6 +13,16 @@ public class order {
     Date pushtime;
     Date selltime;
 
+    public double getSellprice() {
+        return sellprice;
+    }
+
+    public void setSellprice(double sellprice) {
+        this.sellprice = sellprice;
+    }
+
+    double sellprice;
+
     public int getOrderid() {
         return orderid;
     }

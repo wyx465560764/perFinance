@@ -131,7 +131,7 @@
             <tr>
                 <td><%=e.getProductname()%></td>
                 <td><%=e.getNowprice()%></td>
-                <td><%=e.getOver()%></td>
+                <td><%=String.format("%.2f",e.getOver())%></td>
                 <td><%
                     monthIncome=(e.getNowprice()-recentMonthIncomeDAO.getInstance().monthIncome(e.getProductid(),1))/e.getNowprice();
                     if(monthIncome==1){

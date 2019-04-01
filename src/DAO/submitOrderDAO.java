@@ -24,14 +24,18 @@ public class submitOrderDAO {
         if(rs.next()){
             order.setBuyprice(rs.getDouble("nowprice"));
             order.setBuynum(order.getBuysum()/order.getBuyprice());
-            String isql="insert into `order` values(0,?,?,1,?,?,?,now(),null )";
+            String isql="insert into `order` values(0,?,?,1,?,?,?,now(),null,null)";
             PreparedStatement st=DBHelper.getConnection().prepareStatement(isql);
             st.setInt(1,order.getProductid());
             st.setInt(2,order.getUserid());
             st.setDouble(3,order.getBuyprice());
             st.setDouble(4,order.getBuynum());
             st.setDouble(5,order.getBuysum());
-            if(st.executeUpdate()>0){
+            String sql2="update `product` set over=over-? where productid=?";
+            PreparedStatement st2=DBHelper.getConnection().prepareStatement(sql2);
+            st2.setDouble(1,order.getBuynum());
+            st2.setInt(2,order.getProductid());
+            if((st.executeUpdate()>0)&&(st2.executeUpdate()>0)){
                 return true;
             }else {
                 return false;

@@ -88,7 +88,9 @@
         </div>
         <div style="height: 30px"></div>
         <fieldset class="layui-elem-field">
-            <legend>买入审核</legend>
+            <legend><%if(request.getParameter("status").equals("1")){ %>买入审核
+                <%}else if(request.getParameter("status").equals("3")){%>卖出审核
+                <%}%></legend>
             <div class="layui-field-box">
                 <table class="layui-table">
                     <colgroup>
@@ -132,7 +134,14 @@
                             <%=e.getSelltime()%>
                             <%}%>
                         </td>
-                        <td>1</td>
+                        <td><%if(e.getOrderstatus()==1){%>
+                            <a class="layui-btn layui-btn-normal layui-btn-sm" href="review?orderid=<%=e.getOrderid()%>&operate=1&status=1&page=<%=Page%>&num=<%=RowCount%>">通过申请</a>
+                            <button class="layui-btn layui-btn-danger layui-btn-sm">驳回</button>
+                            <%}else if(e.getOrderstatus()==3){%>
+                            <a class="layui-btn layui-btn-normal layui-btn-sm" href="review?orderid=<%=e.getOrderid()%>&operate=1&status=3&page=<%=Page%>&num=<%=RowCount%>">通过申请</a>
+                            <%--<button class="layui-btn layui-btn-danger layui-btn-sm">驳回</button>--%>
+                            <%}%>
+                        </td>
                     </tr>
                     </tbody>
                     <%

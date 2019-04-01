@@ -129,7 +129,7 @@
             <tr>
                 <td><%=e.getProductname()%></td>
                 <td><%=e.getNowprice()%></td>
-                <td><%=e.getOver()%></td>
+                <td><%=String.format("%.2f",e.getOver())%></td>
                 <td><%=e.getExpectedincome()+"%"%></td>
                 <td><a class="layui-btn layui-btn-normal layui-btn-sm" href="fixed-income-detail.jsp?productid=<%=e.getProductid()%>">详细</a></td>
             </tr>

@@ -135,7 +135,7 @@
                         %>
                         <td><%=status%></td>
                         <td>
-                            <%=e.getOver()%>/<%=e.getSum()%>
+                            <%=String.format("%.2f",e.getOver())%>/<%=String.format("%.2f",e.getSum())%>
                         </td>
                         <td><%=e.getNowprice()%></td>
                         <td><a class="layui-btn layui-btn-sm layui-btn-normal" href="product-earn-change.jsp?productid=<%=e.getProductid()%>">更新</a></td>

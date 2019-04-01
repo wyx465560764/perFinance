@@ -136,14 +136,27 @@
                 <%}else if(e.getEarntype()==2){%><%="不定收益"%><%}%>
                 </th>
                 <th><%=e.getBuyprice()%></th>
-                <th><%=String.format("%.2f",e.getNowprice()*e.getBuynum())%></th>
-                <th><%if(e.getOrderstatus()==2&&e.getEarntype()==2){%>
+                <th><%if(e.getOrderstatus()==4){%>
+                    <%=String.format("%.2f",e.getSellprice()*e.getBuynum())%>
+                <%}else if(e.getOrderstatus()==5){%>
+                    <%}else {%>
+                    <%=String.format("%.2f",e.getNowprice()*e.getBuynum())%>
+                <%}%></th>
+                <th><%if((e.getOrderstatus()==2||e.getOrderstatus()==3)&&e.getEarntype()==2){%>
                 <%=String.format("%.2f",(e.getNowprice()-e.getBuyprice())*e.getBuynum())%>
-                <%}else if(e.getOrderstatus()==2&&e.getEarntype()==1){
+                <%}else if(e.getOrderstatus()==4&&e.getEarntype()==2){%>
+                    <%=String.format("%.2f",(e.getSellprice()-e.getBuyprice())*e.getBuynum())%>
+                    <%}%>
+                    <%if((e.getOrderstatus()==2||e.getOrderstatus()==3)&&e.getEarntype()==1){
                     int days = (int) ((new Date().getTime() - e.getPushtime().getTime()) / (1000*3600*24));
                 %>
                 <%=String.format("%.2f",(days*e.getExpectedincome())/365)%>
-                <%}%></th>
+                    <%}else if(e.getOrderstatus()==4&&e.getEarntype()==1){
+                        int days = (int) (e.getSelltime().getTime() - e.getPushtime().getTime()) / (1000*3600*24);
+                    %>
+                    <%=String.format("%.2f",(days*e.getExpectedincome())/365)%>
+                    <%}%>
+                </th>
                 <th><%if(e.getOrderstatus()==1){%>
                     <%="申购审核中"%>
                     <%}else if(e.getOrderstatus()==2){%>
@@ -157,7 +170,7 @@
                     <%}%>
                 </th>
                 <th><%if(e.getOrderstatus()==1){%>
-                    <button class="layui-btn layui-btn-danger layui-btn-sm">取消申购</button>
+                    <a class="layui-btn layui-btn-danger layui-btn-sm" href="reviewuser?orderid=<%=e.getOrderid()%>&operate=1&page=<%=Page%>&num=<%=RowCount%>">取消申购</a>
                     <%}else if(e.getOrderstatus()==2){%>
                     <button class="layui-btn layui-btn-normal layui-btn-sm">卖出</button>
                     <%}else if(e.getOrderstatus()==3){%>

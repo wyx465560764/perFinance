@@ -14,6 +14,7 @@ public class reviewOrderDAO {
     public static reviewOrderDAO getInstance(){return instance;}
     public List<position> viewReview(int status, int userid)throws SQLException{
         String sql="SELECT\n" +
+                "order.orderid," +
                 "order.orderstatus," +
                 "order.buyprice," +
                 "order.buynum," +
@@ -36,6 +37,7 @@ public class reviewOrderDAO {
     }
     private position fromOrderResultset(ResultSet rs)throws SQLException{
         position order=new position();
+        order.setOrderid(rs.getInt("orderid"));
         order.setProductname(rs.getString("productname"));
         order.setBuyprice(rs.getDouble("buyprice"));
         order.setBuynum(rs.getDouble("buynum"));
