@@ -51,13 +51,27 @@ public class reviewServlet extends HttpServlet {
                     out.println("location.href='"+req.getContextPath()+"product-review.jsp?page="+page+"&status="+status+"'</script>");
                 }
             }else if(operate==2){
-
+                if(reviewDAO.isPersonal(userid,orderid)){
+                    if(reviewDAO.reviewDisagree(orderid)){
+                        if(num%10==1) {
+                            req.getRequestDispatcher("product-review.jsp?page=" + (page - 1)+"&status="+status).forward(req, resp);
+                        }else {
+                            req.getRequestDispatcher("product-review.jsp?page=" + page+"&status="+status).forward(req, resp);
+                        }
+                    }else {
+                        out.println("<script language = javascript>alert('发生错误，请正确操作系统');");
+                        out.println("location.href='"+req.getContextPath()+"product-review.jsp?page="+page+"&status="+status+"'</script>");
+                    }
+                }else {
+                    out.println("<script language = javascript>alert('身份验证失败，你没有权限完成该操作');");
+                    out.println("location.href='"+req.getContextPath()+"product-review.jsp?page="+page+"&status="+status+"'</script>");
+                }
+            }else {
+                out.println("<script language = javascript>alert('发生错误，请正确操作系统');");
+                out.println("location.href='"+req.getContextPath()+"product-review.jsp?page="+page+"&status="+status+"'</script>");
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 }

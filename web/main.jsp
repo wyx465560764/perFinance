@@ -6,6 +6,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="DAO.viewBillDAO" %>
 <%@ page import="DAO.halfYearBillDAO" %>
+<%@ page import="entity.assetAllocation" %>
+<%@ page import="DAO.assetAllocationDAO" %>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,21 +43,11 @@
 		<dl class="layui-nav-child">
 			<dd><a href="user-position.jsp?page=1">我的持仓</a></dd>
 			<dd><a href="market-first.jsp">全部基金</a></dd>
-			<dd class="layui-this"><a href="">收益</a></dd>
-			<%--<dd><a href="">电商平台</a></dd>--%>
 		</dl>
 	</li>
 	<%
 		}
 	%>
-	<%--<li class="layui-nav-item layui-this">--%>
-	<%--<a href="javascript:;">产品</a>--%>
-	<%--<dl class="layui-nav-child">--%>
-	<%--<dd><a href="">选项1</a></dd>--%>
-	<%--<dd><a href="">选项2</a></dd>--%>
-	<%--<dd><a href="">选项3</a></dd>--%>
-	<%--</dl>--%>
-	<%--</li>--%>
 	<li class="layui-nav-item"><a href="bill-add.jsp">记账</a></li>
 	<li class="layui-nav-item"><a href="bill-detail.jsp?page=1">账单</a></li>
 	<li class="layui-nav-item"><a href="wish-detail.jsp?page=1">愿望单</a></li>
@@ -112,18 +104,9 @@
                                     if (monthBillList.size()<i+1)break;
                         %>
 									'<%=monthBillList.get(i).getMonth()%>',
-									// 'Tue',
-									// 'Wed',
-									// 'Thu',
-									// 'Fri',
-									// 'Sat',
-									// 'Sun'
 									<%
                                 }%>
 								]
-
-
-								// data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 							},
 							yAxis: {
@@ -137,13 +120,6 @@
                                    if (monthBillList.size()<i+1){ break;}
                        %>
 									'<%=monthBillList.get(i).getSum()%>',
-									// 820,
-									// 932,
-									// 901,
-									// 934,
-									// 1290,
-									// 1330,
-									// 120,
 									<%
                               }%>
 								],
@@ -165,10 +141,69 @@
 			</div>
 			<div class="layui-col-md6">
 				<div class="layui-card">
-					<div class="layui-card-header"><strong style="font-size: 20px">近期新闻</strong></div>
+					<div class="layui-card-header"><strong style="font-size: 20px">资产配置</strong></div>
 					<div class="layui-card-body">
-						结合 layui 的栅格系统<br>
-						轻松实现响应式布局
+						<div id="pie" style="height: 280%"></div>
+						<%
+							try {
+								List<assetAllocation> assetAllocationList=assetAllocationDAO.getInstance().selectAssetAllocation(Integer.valueOf(session.getAttribute("userid").toString()));
+						%>
+						<script type="text/javascript">
+                            var dom = document.getElementById("pie");
+                            var myChart = echarts.init(dom);
+                            var app = {};
+                            option = null;
+                            app.title = '环形图';
+
+                            option = {
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                                },
+                                legend: {
+                                    orient: 'vertical',
+                                    x: 'left',
+                                    data:[<%for (assetAllocation e:assetAllocationList){%>
+										'<%=e.getType()%>',
+										<%}%>]
+                                },
+                                series: [
+                                    {
+                                        name:'资产组成',
+                                        type:'pie',
+                                        radius: ['50%', '70%'],
+                                        avoidLabelOverlap: false,
+                                        label: {
+                                            normal: {
+                                                show: false,
+                                                position: 'center'
+                                            },
+                                            emphasis: {
+                                                show: true,
+                                                textStyle: {
+                                                    fontSize: '30',
+                                                    fontWeight: 'bold'
+                                                }
+                                            }
+                                        },
+                                        data:[
+                                            <%for (assetAllocation e:assetAllocationList){%>
+                                            {value:<%=e.getSum()%>, name:'<%=e.getType()%>'},
+											<%}%>
+                                        ]
+                                    }
+                                ]
+                            };
+                            ;
+                            if (option && typeof option === "object") {
+                                myChart.setOption(option, true);
+                            }
+						</script>
+						<%
+							}catch (SQLException s){
+							    s.printStackTrace();
+							}
+						%>
 					</div>
 				</div>
 			</div>

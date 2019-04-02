@@ -33,40 +33,35 @@
 
 <ul class="layui-nav">
     <li class="layui-nav-item"><a href="main.jsp">首页</a></li>
-    <li class="layui-nav-item layui-this">
-        <a href="javascript:;">产品</a>
-        <dl class="layui-nav-child">
-            <dd><a href="">选项1</a></dd>
-            <dd><a href="">选项2</a></dd>
-            <dd><a href="">选项3</a></dd>
-        </dl>
-    </li>
-    <li class="layui-nav-item"><a href="">大数据</a></li>
-    <li class="layui-nav-item">
-        <a href="javascript:;">解决方案</a>
-        <dl class="layui-nav-child">
-            <dd><a href="">移动模块</a></dd>
-            <dd><a href="">后台模版</a></dd>
-            <dd class="layui-this"><a href="">选中项</a></dd>
-            <dd><a href="">电商平台</a></dd>
-        </dl>
-    </li>
     <%
         if(session.getAttribute("type").equals("1")){
     %>
     <li class="layui-nav-item"><a href="background.jsp">基金经理后台</a></li>
     <%
+    }else {
+    %>
+    <li class="layui-nav-item layui-this">
+        <a href="javascript:;">基金超市</a>
+        <dl class="layui-nav-child">
+            <dd><a href="user-position.jsp?page=1">我的持仓</a></dd>
+            <dd><a href="market-first.jsp">全部基金</a></dd>
+        </dl>
+    </li>
+    <%
         }
     %>
+    <li class="layui-nav-item"><a href="bill-add.jsp">记账</a></li>
+    <li class="layui-nav-item"><a href="bill-detail.jsp?page=1">账单</a></li>
+    <li class="layui-nav-item"><a href="wish-detail.jsp?page=1">愿望单</a></li>
     <li class="layui-nav-item" style="float: right">
         <%--<div class="col-md-1">--%>
         <a href="../login-out.jsp">注销</a>
-            <%--</div>--%>
+        <%--</div>--%>
     </li>
     <li class="layui-nav-item" style="float: right">
         <%--<div class="col-md-2">--%>
         <p align="right">欢迎你，<%=session.getAttribute("username")%></p>
-            <%--</div>--%>
+        <%--</div>--%>
 
     </li>
 

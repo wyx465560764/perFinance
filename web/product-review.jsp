@@ -136,10 +136,10 @@
                         </td>
                         <td><%if(e.getOrderstatus()==1){%>
                             <a class="layui-btn layui-btn-normal layui-btn-sm" href="review?orderid=<%=e.getOrderid()%>&operate=1&status=1&page=<%=Page%>&num=<%=RowCount%>">通过申请</a>
-                            <button class="layui-btn layui-btn-danger layui-btn-sm">驳回</button>
+                            <a class="layui-btn layui-btn-danger layui-btn-sm" href="review?orderid=<%=e.getOrderid()%>&operate=2&status=1&page=<%=Page%>&num=<%=RowCount%>">驳回</a>
                             <%}else if(e.getOrderstatus()==3){%>
                             <a class="layui-btn layui-btn-normal layui-btn-sm" href="review?orderid=<%=e.getOrderid()%>&operate=1&status=3&page=<%=Page%>&num=<%=RowCount%>">通过申请</a>
-                            <%--<button class="layui-btn layui-btn-danger layui-btn-sm">驳回</button>--%>
+                            <a class="layui-btn layui-btn-danger layui-btn-sm" href="review?orderid=<%=e.getOrderid()%>&operate=2&status=3&page=<%=Page%>&num=<%=RowCount%>">驳回</a>
                             <%}%>
                         </td>
                     </tr>
