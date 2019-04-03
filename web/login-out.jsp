@@ -3,8 +3,10 @@
 <!DOCTYPE HTML >
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/images/shortcuticon.ico" />
         <title>注销页面</title>
-      </head>
+    </head>
   <body>
     <%
     response.setHeader("refresh","3;URL=index.jsp");

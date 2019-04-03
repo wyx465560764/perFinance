@@ -39,13 +39,14 @@ public class submitOrderServlet extends HttpServlet {
                 //验证身份证
                 if(submitOrderDAO.submitOrder(submitOrder)){
                     out.println("<script language = javascript>alert('认购成功，因该系统处于测试阶段暂不提供收费退费功能');");
-                    out.println("location.href='"+req.getContextPath()+"main.jsp'</script>");
+                    out.println("location.href='"+req.getContextPath()+"user-position.jsp?page=1'</script>");
                 }else {
                     out.println("<script language = javascript>alert('认购失败，发生未知错误！');");
-                    out.println("location.href='"+req.getContextPath()+"index.jsp'</script>");
+                    out.println("location.href='"+req.getContextPath()+"user-position.jsp?page=1'</script>");
                 }
             }else if (submitOrderDAO.isVerified(userid).equals("")){
-//                实名认证
+                out.println("<script language = javascript>alert('认购失败，请先实名认证！');");
+                out.println("location.href='"+req.getContextPath()+"identityBinding.jsp'</script>");
             }else {
                 out.println("<script language = javascript>alert('身份证验证失败，请确认身份证号是否输入正确！');");
                 out.println("location.href='"+req.getContextPath()+"unfixed-income-detail.jsp?productid="+productid+"'</script>");

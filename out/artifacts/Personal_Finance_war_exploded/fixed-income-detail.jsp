@@ -196,7 +196,7 @@
                                                     <input type="text" name="identity" lay-verify="required|identity" autocomplete="off" class="layui-input">
                                                 </div>
                                             </div>
-                                            没有实名认证？立即实名认证
+                                            <a href="identityBinding.jsp" target="_blank">没有实名认证？立即实名认证</a>
                                         </div>
                                     </div>
                                     <input type="hidden" name="productid" value="<%=request.getParameter("productid")%>">
