@@ -1,6 +1,5 @@
 package DAO;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,22 +9,36 @@ import java.util.List;
 import dbtool.DBHelper;
 import entity.product;
 
-public class productEarnDAO {
-    private static productEarnDAO instance=new productEarnDAO();
-    public static productEarnDAO getInstance(){return instance;}
+public class productDAO {
+    private static productDAO instance=new productDAO();
+    public static productDAO getInstance(){return instance;}
     public List<product> SelectProductEarnDetail(String userid) throws SQLException,Exception {
         String sql = "select * from product where userid=? and earntype=2 order by productid desc";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,userid);
         ResultSet rs=st.executeQuery();
-        ArrayList<product> wishArrayList=new ArrayList<>();
+        ArrayList<product> productArrayList=new ArrayList<>();
         while (rs.next()){
             product e=fromProductResultSet(rs);
-            wishArrayList.add(e);
+            productArrayList.add(e);
         }
         st.close();
         rs.close();
-        return wishArrayList;
+        return productArrayList;
+    }
+    public List<product> SelectProductDetail(String userid) throws SQLException,Exception {
+        String sql = "select * from product where userid=? order by productid desc";
+        PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
+        st.setString(1,userid);
+        ResultSet rs=st.executeQuery();
+        ArrayList<product> productArrayList=new ArrayList<>();
+        while (rs.next()){
+            product e=fromProductResultSet(rs);
+            productArrayList.add(e);
+        }
+        st.close();
+        rs.close();
+        return productArrayList;
     }
     private product fromProductResultSet(ResultSet rs)throws SQLException{
         product e=new product();

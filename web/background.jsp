@@ -65,7 +65,7 @@
                         <%--<dd><a href="javascript:;">卖出审核</a></dd>--%>
                     <%--</dl>--%>
                 <%--</li>--%>
-                <li class="layui-nav-item"><a href="product-change.jsp?page=1.jsp">修改基金</a></li>
+                <li class="layui-nav-item"><a href="product-change.jsp?page=1">修改基金</a></li>
                 <li class="layui-nav-item"><a href="product-add.jsp">发布基金</a></li>
             </ul>
         </div>
@@ -73,6 +73,14 @@
 
     <div class="layui-body">
 
+        <div style="padding: 20px; background-color: #F2F2F2;">
+            <div style="height: 30px">
+                <span class="layui-breadcrumb">
+                    <a href="main.jsp">首页</a>
+                    <a><cite>基金经理后台</cite></a>
+                </span>
+            </div>
+        </div>
 
     </div>
 

@@ -87,9 +87,16 @@
                         var form = layui.form;
 
                         //监听提交
-                        form.on('submit(formDemo)', function(data){
+                        form.on('submit(demo1)', function(data){
                             layer.msg(JSON.stringify(data.field));
                             return false;
+                        });
+                        form.verify({
+                            min: function(value){
+                                if(value<0){
+                                    return '输入值必须大于0';
+                                }
+                            }
                         });
                     });
                 </script>
@@ -128,7 +135,7 @@
                                 %>
                                 <option value="<%=wish.getWishstatus()%>"><%=wishstatus%>
                                 </option>
-                                <option value="0">未实现</option>
+                                <option value="0">待实现</option>
                                 <option value="1">已实现</option>
                                 <option value="2">已放弃</option>
                             </select>
@@ -137,7 +144,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label" style="width: auto">预计花费</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="money" lay-verify="required|number" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=wish.getMoney()%>">
+                            <input type="text" name="money" lay-verify="required|number|min" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=wish.getMoney()%>">
                         </div>
                         <%--<div class="layui-form-mid layui-word-aux">辅助文字</div>--%>
                     </div>

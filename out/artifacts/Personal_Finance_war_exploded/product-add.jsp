@@ -66,7 +66,7 @@
                 <%--<dd><a href="javascript:;">卖出审核</a></dd>--%>
                 <%--</dl>--%>
                 <%--</li>--%>
-                <li class="layui-nav-item"><a href="product-change.jsp?page=1.jsp">修改基金</a></li>
+                <li class="layui-nav-item"><a href="product-change.jsp?page=1">修改基金</a></li>
                 <li class="layui-nav-item"><a href="product-add.jsp">发布基金</a></li>
             </ul>
         </div>
@@ -90,9 +90,16 @@
                 var form = layui.form;
 
                 //监听提交
-                form.on('submit(formDemo)', function(data){
+                form.on('submit(demo1)', function(data){
                     layer.msg(JSON.stringify(data.field));
                     return false;
+                });
+                form.verify({
+                    min: function(value){
+                        if(value<0){
+                            return '输入值必须大于0';
+                        }
+                    }
                 });
             });
         </script>
@@ -140,13 +147,13 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">发行份数</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="sum" lay-verify="required|number" autocomplete="off" class="layui-input">
+                            <input type="text" name="sum" lay-verify="required|number|min" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label" style="width: auto">每份初始价格</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="nowprice" lay-verify="required|number" autocomplete="off" class="layui-input">
+                            <input type="text" name="nowprice" lay-verify="required|number|min" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">

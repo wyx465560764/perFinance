@@ -64,7 +64,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="market-fixedincome.jsp?type=货币型&page=1">货币型</a></dd>
                         <dd><a href="market-fixedincome.jsp?type=理财型&page=1">理财型</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=股票型&page=1">债券型</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=债券型&page=1">债券型</a></dd>
                         <dd><a href="market-unfixedincome.jsp?type=QDII&page=1">QDII</a></dd>
                         <dd><a href="market-unfixedincome.jsp?type=养老FOF&page=1">养老FOF</a></dd>
                         <dd><a href="market-unfixedincome.jsp?type=股票型&page=1">股票型</a></dd>

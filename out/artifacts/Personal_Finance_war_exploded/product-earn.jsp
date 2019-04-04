@@ -1,7 +1,7 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="entity.product" %>
 <%@ page import="java.util.List" %>
-<%@ page import="DAO.productEarnDAO" %><%--
+<%@ page import="DAO.productDAO" %><%--
   Created by IntelliJ IDEA.
   User: wyx
   Date: 2019/3/18
@@ -17,6 +17,7 @@
     <title>个人理财系统-基金经理后台</title>
     <link rel="stylesheet" href="css/layui.css">
     <link rel="shortcut icon" href="/images/shortcuticon.ico" />
+    <script src="layui.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -68,7 +69,7 @@
                 <%--<dd><a href="javascript:;">卖出审核</a></dd>--%>
                 <%--</dl>--%>
                 <%--</li>--%>
-                <li class="layui-nav-item"><a href="product-change.jsp?page=1.jsp">修改基金</a></li>
+                <li class="layui-nav-item"><a href="product-change.jsp?page=1">修改基金</a></li>
                 <li class="layui-nav-item"><a href="product-add.jsp">发布基金</a></li>
             </ul>
         </div>
@@ -107,7 +108,7 @@
                     </thead>
                     <%
                         try {
-                            List<product> productList= productEarnDAO.getInstance().SelectProductEarnDetail(session.getAttribute("userid").toString());
+                            List<product> productList= productDAO.getInstance().SelectProductEarnDetail(session.getAttribute("userid").toString());
                             int RowCount=productList.size();           //记录总数
                             int PageCount=(RowCount-1)/10+1;          //总页数
                             int Page=1;               //待显示页码
@@ -187,7 +188,7 @@
         投资有风险，理财需谨慎
     </div>
 </div>
-<script src="layui.js"></script>
+
 <script>
     //JavaScript代码区域
     layui.use('element', function(){

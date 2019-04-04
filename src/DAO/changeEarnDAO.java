@@ -16,14 +16,22 @@ public class changeEarnDAO {
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,productid);
         ResultSet rs=st.executeQuery();
-        product product=new product();
+        product e=new product();
         if(rs.next()){
-            product.setNowprice(rs.getDouble("nowprice"));
-            product.setProductname(rs.getString("productname"));
+            e.setProductid(rs.getInt("productid"));
+            e.setProductname(rs.getString("productname"));
+            e.setType(rs.getString("type"));
+            e.setEarntype(rs.getInt("earntype"));
+            e.setSum(rs.getDouble("sum"));
+            e.setOver(rs.getDouble("over"));
+            e.setNowprice(rs.getDouble("nowprice"));
+            e.setExpectedincome(rs.getInt("expectedincome"));
+            e.setRemark(rs.getString("remark"));
+            e.setUserid(rs.getInt("userid"));
         }
         st.close();
         rs.close();
-        return product;
+        return e;
     }
     public boolean changeEarn(product product)throws SQLException {
         String sqlp="UPDATE product set nowprice=? where productid=?";

@@ -17,8 +17,18 @@
     <link rel="stylesheet" href="css/layui.css">
     <script src="layui.js"></script>
     <link rel="shortcut icon" href="/images/shortcuticon.ico" />
+    <script src="layui.js"></script>
 </head>
 <body class="layui-layout-body">
+<div style="padding: 20px; background-color: #F2F2F2;">
+    <div style="height: 30px">
+                <span class="layui-breadcrumb">
+                    <a href="main.jsp">首页</a>
+                    <a href="background.jsp">基金经理后台</a>
+                    <a><cite>修改基金</cite></a>
+                </span>
+    </div>
+</div>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">基金经理后台</div>
@@ -77,7 +87,7 @@
     <div class="layui-body">
         <div style="height: 30px"></div>
         <fieldset class="layui-elem-field">
-            <legend>更新最新收益</legend>
+            <legend>修改基金</legend>
             <div class="layui-field-box">
                 <div style="padding: 20px; background-color: #F2F2F2;">
                     <div class="layui-row layui-col-space15">
@@ -91,44 +101,72 @@
 
                                     %>
                                     <label style="">基金名称：<%=product.getProductname()%></label><br>
-                                    <label style="">当前每份价格：<%=product.getNowprice()%></label><br>
+                                    <label style="">目前单份报价：<%=product.getNowprice()%></label><br>
+                                    <label style="">基金类型：<%=product.getType()%></label><br>
+                                    <label style="">收益类型：<%
+                                        int statusNum=product.getEarntype();
+                                        String status;
+                                        if(statusNum==1){
+                                            status="固收";
+                                        }else if (statusNum==2){
+                                            status="不定收益";
+                                        }else {
+                                            status="无法读取收益类型";
+                                        }
+                                    %>
+                                        <%=status%></label><br>
+                                    <label style="">剩余份数/总份数：<%=String.format("%.2f",product.getOver())%>/<%=String.format("%.2f",product.getSum())%></label><br>
                                 </div>
-                                <%
-                                    }catch (SQLException s){
-                                            s.printStackTrace();
-                                    }
-                                %>
+
                             </div>
                             <div class="layui-card">
                                 <%--<div class="layui-card-header">请再次确认信息</div>--%>
                                 <div class="layui-card-body">
                                     <script>
                                         //Demo
-                                        layui.use('form', function(){
-                                            var form = layui.form;
-
+                                        layui.use(['form', 'layedit', 'laydate'], function(){
+                                            var form = layui.form
+                                                ,layer = layui.layer
+                                                ,layedit = layui.layedit
+                                                ,laydate = layui.laydate;
                                             //监听提交
                                             form.on('submit(demo1)', function(data){
-                                                layer.msg(JSON.stringify(data.field));
+                                                layer.alert(JSON.stringify(data.field), {
+                                                    title: '最终的提交信息'
+                                                })
                                                 return false;
                                             });
                                             form.verify({
                                                 min: function(value){
-                                                    if(value<0){
-                                                        return '输入值必须大于0';
+                                                    if(value<(<%=product.getSum()-product.getOver()%>)){
+                                                        return '基金的最小份数不能小于已认购的份数';
                                                     }
                                                 }
                                             });
                                         });
                                     </script>
-                                    <form class="layui-form" action="addearn" method="post">
+                                    <form class="layui-form" action="changeproduct" method="post">
                                         <div class="layui-field-box">
                                             <div class="layui-form-item">
                                                 <div class="layui-inline">
-                                                    <label class="layui-form-label" style="width: auto">最新每份报价</label>
+                                                    <label class="layui-form-label">基金名称</label>
                                                     <div class="layui-input-inline">
-                                                        <input type="text" name="newprice" lay-verify="required|number|min" autocomplete="off" class="layui-input">
+                                                        <input type="text" name="productname" lay-verify="required" autocomplete="off" class="layui-input" value="<%=product.getProductname()%>">
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">基金份数</label>
+                                                    <div class="layui-input-inline">
+                                                        <input type="text" name="sum" lay-verify="required|number|min" autocomplete="off" class="layui-input" value="<%=product.getSum()%>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item  layui-form-text">
+                                                <label class="layui-form-label">备注</label>
+                                                <div class="layui-input-block">
+                                                    <textarea class="layui-textarea" name="remark" lay-verify="required" autocomplete="off"><%=product.getRemark()%></textarea>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="productid" value="<%=request.getParameter("productid")%>">
@@ -141,7 +179,11 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div>
+                                    <%
+                                        }catch (SQLException s){
+                                            s.printStackTrace();
+                                        }
+                                    %>
                             </div>
                         </div>
                     </div>
@@ -156,7 +198,6 @@
         投资有风险，理财需谨慎
     </div>
 </div>
-<script src="layui.js"></script>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){

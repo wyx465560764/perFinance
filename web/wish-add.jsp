@@ -86,6 +86,13 @@
                             layer.msg(JSON.stringify(data.field));
                             return false;
                         });
+                        form.verify({
+                            min: function(value){
+                                if(value<0){
+                                    return '输入值必须大于0';
+                                }
+                            }
+                        });
                     });
                 </script>
                 <script>
@@ -121,7 +128,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label" style="width: auto">预计花费</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="money" lay-verify="required|number" placeholder="输入内容" autocomplete="off" class="layui-input">
+                            <input type="text" name="money" lay-verify="required|number|min" placeholder="输入内容" autocomplete="off" class="layui-input">
                         </div>
                         <%--<div class="layui-form-mid layui-word-aux">辅助文字</div>--%>
                     </div>
@@ -129,7 +136,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label" style="width: auto">计划实现日期</label>
                             <div class="layui-input-inline">
-                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="plantime" required lay-verify="required|date">
+                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="plantime" required lay-verify="required|date" autocomplete="off">
                             </div>
                         </div>
                     </div>

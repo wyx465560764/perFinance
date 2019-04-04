@@ -68,7 +68,7 @@
                 <%--<dd><a href="javascript:;">卖出审核</a></dd>--%>
                 <%--</dl>--%>
                 <%--</li>--%>
-                <li class="layui-nav-item"><a href="product-change.jsp?page=1.jsp">修改基金</a></li>
+                <li class="layui-nav-item"><a href="product-change.jsp?page=1">修改基金</a></li>
                 <li class="layui-nav-item"><a href="product-add.jsp">发布基金</a></li>
             </ul>
         </div>
@@ -157,14 +157,14 @@
 
                     <% if(Page>1){ %>
 
-                    <a href="user-position.jsp?page=<%=Page-1%>" class="layui-btn">上一页</a>
+                    <a href="product-review.jsp?page=<%=Page-1%>" class="layui-btn">上一页</a>
 
                     <% }else{ %>
                     <a class="layui-btn">上一页</a>
                     <%}%>
                     <% if(Page<PageCount){ %>
 
-                    <a href="user-position.jsp?page=<%=Page+1%>" class="layui-btn">下一页</a>
+                    <a href="product-review.jsp?page=<%=Page+1%>" class="layui-btn">下一页</a>
 
                     <% }else{ %>
                     <a class="layui-btn">下一页</a>

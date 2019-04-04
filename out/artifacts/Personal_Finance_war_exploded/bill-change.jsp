@@ -87,9 +87,16 @@
                         var form = layui.form;
 
                         //监听提交
-                        form.on('submit(formDemo)', function(data){
+                        form.on('submit(demo1)', function(data){
                             layer.msg(JSON.stringify(data.field));
                             return false;
+                        });
+                        form.verify({
+                            min: function(value){
+                                if(value<0){
+                                    return '输入值必须大于0';
+                                }
+                            }
                         });
                     });
                 </script>
@@ -123,7 +130,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">金额</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="money" required lay-verify="required|number" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=bill.getMoney()%>">
+                            <input type="text" name="money" required lay-verify="required|number|min" placeholder="输入内容" autocomplete="off" class="layui-input" value="<%=bill.getMoney()%>">
                         </div>
                         <%--<div class="layui-form-mid layui-word-aux">辅助文字</div>--%>
                     </div>
@@ -138,7 +145,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label" style="width: auto">消费/收入日期</label>
                             <div class="layui-input-inline">
-                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="spenttime" required lay-verify="required" value="<%=bill.getSpentTime()%>">
+                                <input type="text" class="layui-input" id="date" placeholder="yyyy-MM-dd" name="spenttime" required lay-verify="required|date" value="<%=bill.getSpentTime()%>">
                             </div>
                         </div>
                     </div>

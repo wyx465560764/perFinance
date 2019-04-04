@@ -68,7 +68,7 @@
                 <%--<dd><a href="javascript:;">卖出审核</a></dd>--%>
                 <%--</dl>--%>
                 <%--</li>--%>
-                <li class="layui-nav-item"><a href="product-change.jsp?page=1.jsp">修改基金</a></li>
+                <li class="layui-nav-item"><a href="product-change.jsp?page=1">修改基金</a></li>
                 <li class="layui-nav-item"><a href="product-add.jsp">发布基金</a></li>
             </ul>
         </div>
@@ -102,13 +102,32 @@
                             <div class="layui-card">
                                 <%--<div class="layui-card-header">请再次确认信息</div>--%>
                                 <div class="layui-card-body">
+                                    <script>
+                                        //Demo
+                                        layui.use('form', function(){
+                                            var form = layui.form;
+
+                                            //监听提交
+                                            form.on('submit(demo1)', function(data){
+                                                layer.msg(JSON.stringify(data.field));
+                                                return false;
+                                            });
+                                            form.verify({
+                                                min: function(value){
+                                                    if(value<0){
+                                                        return '输入值必须大于0';
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    </script>
                                     <form class="layui-form" action="addearn" method="post">
                                         <div class="layui-field-box">
                                             <div class="layui-form-item">
                                                 <div class="layui-inline">
                                                     <label class="layui-form-label" style="width: auto">最新每份报价</label>
                                                     <div class="layui-input-inline">
-                                                        <input type="text" name="newprice" lay-verify="required|number" autocomplete="off" class="layui-input">
+                                                        <input type="text" name="newprice" lay-verify="required|number|min" autocomplete="off" class="layui-input">
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,18 +139,6 @@
                                                     <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                                                 </div>
                                             </div>
-                                            <script>
-                                                //Demo
-                                                layui.use('form', function(){
-                                                    var form = layui.form;
-
-                                                    //监听提交
-                                                    form.on('submit(formDemo)', function(data){
-                                                        layer.msg(JSON.stringify(data.field));
-                                                        return false;
-                                                    });
-                                                });
-                                            </script>
                                         </div>
                                     </form>
                                 </div>
