@@ -120,16 +120,16 @@
                                     </div>
                                     <div class="layui-row">
                                         <div class="layui-col-xs3">
-                                            最新基金规模(元)：<%=productDetail.getNowprice()*productDetail.getSum()%>
+                                            最新基金规模(元)：<%=String.format("%.2f",productDetail.getNowprice()*productDetail.getSum())%>
                                         </div>
                                         <div class="layui-col-xs3">
-                                            最新单位净值(元)：<%=productDetail.getNowprice()%>
+                                            最新单位净值(元)：<%=String.format("%.2f",productDetail.getNowprice())%>
                                         </div>
                                         <div class="layui-col-xs3">
-                                            份额总数：<%=productDetail.getSum()%>
+                                            份额总数：<%=String.format("%.2f",productDetail.getSum())%>
                                         </div>
                                         <div class="layui-col-xs3">
-                                            剩余可购份额数：<%=productDetail.getOver()%>
+                                            剩余可购份额数：<%=String.format("%.2f",productDetail.getOver())%>
                                         </div>
                                     </div>
                                     <div class="layui-row">

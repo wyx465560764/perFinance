@@ -138,12 +138,14 @@
                     <%}%>
                     <%if((e.getOrderstatus()==2||e.getOrderstatus()==3)&&e.getEarntype()==1){
                     int days = (int) ((new Date().getTime() - e.getPushtime().getTime()) / (1000*3600*24));
+                    double income=(days*e.getExpectedincome()/365)*e.getBuysum();
                 %>
-                <%=String.format("%.2f",(days*e.getExpectedincome())/365)%>
+                <%=String.format("%.2f",income)%>
                     <%}else if(e.getOrderstatus()==4&&e.getEarntype()==1){
                         int days = (int) (e.getSelltime().getTime() - e.getPushtime().getTime()) / (1000*3600*24);
+                        double income=(days*e.getExpectedincome()/365)*e.getBuysum();
                     %>
-                    <%=String.format("%.2f",(days*e.getExpectedincome())/365)%>
+                    <%=String.format("%.2f",income)%>
                     <%}%>
                 </th>
                 <th><%if(e.getOrderstatus()==1){%>
