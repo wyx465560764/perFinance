@@ -31,7 +31,7 @@
                 <a href="javascript:;">基金超市</a>
                 <dl class="layui-nav-child">
                     <dd><a href="user-position.jsp?page=1">我的持仓</a></dd>
-                    <dd><a href="">全部基金</a></dd>
+                    <dd><a href="market-first.jsp">全部基金</a></dd>
                 </dl>
             </li>
             <%
@@ -229,7 +229,7 @@
                                             份额总数：<%=productDetail.getSum()%>
                                         </div>
                                         <div class="layui-col-xs3">
-                                            剩余可购份额数：<%=productDetail.getOver()%>
+                                            剩余可购份额数：<%=String.format("%.2f",productDetail.getOver())%>
                                         </div>
                                     </div>
                                     <div class="layui-row">

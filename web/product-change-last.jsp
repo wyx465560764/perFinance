@@ -20,15 +20,6 @@
     <script src="layui.js"></script>
 </head>
 <body class="layui-layout-body">
-<div style="padding: 20px; background-color: #F2F2F2;">
-    <div style="height: 30px">
-                <span class="layui-breadcrumb">
-                    <a href="main.jsp">首页</a>
-                    <a href="background.jsp">基金经理后台</a>
-                    <a><cite>修改基金</cite></a>
-                </span>
-    </div>
-</div>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">基金经理后台</div>
@@ -85,7 +76,15 @@
     </div>
 
     <div class="layui-body">
-        <div style="height: 30px"></div>
+        <div style="padding: 20px; background-color: #F2F2F2;">
+            <div style="height: 30px">
+                <span class="layui-breadcrumb">
+                    <a href="main.jsp">首页</a>
+                    <a href="background.jsp">基金经理后台</a>
+                    <a><cite>修改基金</cite></a>
+                </span>
+            </div>
+        </div>
         <fieldset class="layui-elem-field">
             <legend>修改基金</legend>
             <div class="layui-field-box">

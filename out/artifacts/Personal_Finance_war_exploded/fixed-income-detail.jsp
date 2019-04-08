@@ -31,7 +31,7 @@
                 <a href="javascript:;">基金超市</a>
                 <dl class="layui-nav-child">
                     <dd><a href="user-position.jsp?page=1">我的持仓</a></dd>
-                    <dd><a href="">全部基金</a></dd>
+                    <dd><a href="market-first.jsp">全部基金</a></dd>
                 </dl>
             </li>
             <%
