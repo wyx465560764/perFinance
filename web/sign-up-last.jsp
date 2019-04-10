@@ -78,7 +78,7 @@
         </div>
     </div>
     <div class="row" style="padding-top: 60px; clear: both;">
-        <div class="col-md-12 text-center"><p><small>&copy; All Rights Reserved. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></small></p></div>
+        <div class="col-md-12 text-center"><p><small>&copy; 个人理财系统--财务自由之路</small></p></div>
     </div>
 </div>
 
