@@ -71,7 +71,7 @@ public class searchDAO {
         StringBuffer sql=new StringBuffer();
         sql.append("select * from wish where userid='"+userId+"'");
         if(!wishName.equals("请输入关键词")){
-            sql.append("and wishname like '%"+wishName+"%'");
+            sql.append(" and wishname like '%"+wishName+"%'");
         }
         if (status!=""){
             sql.append(" and wishstatus="+status);
@@ -88,7 +88,7 @@ public class searchDAO {
         if(wishMonthMin!=""&&wishMonthMax!=""){
             sql.append(" and pushtime BETWEEN '"+wishMonthMin+"'and '"+wishMonthMax+"'");
         }
-        sql.append("order by plantime desc");
+        sql.append(" order by plantime desc");
 //        System.out.println(sql);
         Statement st=con.createStatement();
         ResultSet rs=st.executeQuery(sql.toString());
