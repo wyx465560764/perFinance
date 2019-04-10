@@ -88,7 +88,7 @@ public class searchDAO {
         if(wishMonthMin!=""&&wishMonthMax!=""){
             sql.append(" and pushtime BETWEEN '"+wishMonthMin+"'and '"+wishMonthMax+"'");
         }
-        sql.append(" order by plantime desc");
+        sql.append(" order by pushtime desc");
 //        System.out.println(sql);
         Statement st=con.createStatement();
         ResultSet rs=st.executeQuery(sql.toString());
@@ -110,7 +110,7 @@ public class searchDAO {
         e.setPlanTime(rs.getDate("plantime"));
         e.setMoney(rs.getDouble("money"));
         e.setWishstatus(rs.getInt("wishstatus"));
-        e.setPushTime(rs.getTime("pushtime"));
+        e.setPushTime(rs.getDate("pushtime"));
 
         return e;
     }

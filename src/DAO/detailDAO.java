@@ -15,7 +15,7 @@ public class detailDAO {
     private static detailDAO instance=new detailDAO();
     public static detailDAO getInstance(){return instance;}
     public List<wish> selectWishByFirst(String userid)throws SQLException{
-        String sql = "select * from wish where userid=? order by plantime desc";
+        String sql = "select * from wish where userid=? order by pushtime desc";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,userid);
         ResultSet rs=st.executeQuery();
