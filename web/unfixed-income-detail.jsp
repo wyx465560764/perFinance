@@ -226,7 +226,7 @@
                                             最新单位净值(元)：<%=String.format("%.2f",productDetail.getNowprice())%>
                                         </div>
                                         <div class="layui-col-xs3">
-                                            份额总数：<%=String.format("%.2f"productDetail.getSum())%>
+                                            份额总数：<%=String.format("%.2f",productDetail.getSum())%>
                                         </div>
                                         <div class="layui-col-xs3">
                                             剩余可购份额数：<%=String.format("%.2f",productDetail.getOver())%>
