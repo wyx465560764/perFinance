@@ -18,12 +18,12 @@
 
 	<title>个人理财系统</title>
 
-	<meta name="description" content="Source code generated using layoutit.com">
-	<meta name="author" content="LayoutIt!">
+	<%--<meta name="description" content="Source code generated using layoutit.com">--%>
+	<%--<meta name="author" content="LayoutIt!">--%>
 
 	<link rel="stylesheet" href="css/layui.css"  media="all">
 	<script src="layui.js" charset="utf-8"></script>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<%--<link href="css/bootstrap.min.css" rel="stylesheet">--%>
 	<link href="css/layui.css" rel="stylesheet">
 
 	<link rel="shortcut icon" href="/images/shortcuticon.ico" />
@@ -381,8 +381,8 @@
 	</div>
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<%--<script src="js/jquery.min.js"></script>--%>
+<%--<script src="js/bootstrap.min.js"></script>--%>
 <%--<script src="js/scripts.js"></script>--%>
 </body>
 </html>

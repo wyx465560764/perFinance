@@ -44,7 +44,7 @@ public class userServlet extends HttpServlet {
                     session.setAttribute("userid",user.getUserid());
                     session.setAttribute("username",user.getUsername());
                     session.setAttribute("type",user.getType());
-                    req.getRequestDispatcher("main.jsp").forward(req, resp);
+                    out.println("<script language = javascript>location.href='main.jsp'</script>");
 //                    out.println("<script language = javascript> location.href='finance/main.jsp'</script>");
                 }else {
                     out.println("<script language = javascript>alert('用户名或密码错误');");
