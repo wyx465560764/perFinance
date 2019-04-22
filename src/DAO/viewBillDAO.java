@@ -14,7 +14,7 @@ public class viewBillDAO {
     private static viewBillDAO instance=new viewBillDAO();
     public static viewBillDAO getInstance(){return instance;}
     public List<bill> selectByUser(String userid)throws SQLException {
-        String sql = "select * from bill where userid=? and type=0 order by spenttime desc LIMIT 10";
+        String sql = "select * from bill,bill_dictionary where userid=? and type=0 and billname=billnamenum order by spenttime desc LIMIT 10";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1, userid);
         ResultSet rs = st.executeQuery();
@@ -31,7 +31,7 @@ public class viewBillDAO {
         bill e=new bill();
         e.setBillId(rs.getInt("billid"));
         e.setUserId(rs.getInt("userid"));
-        e.setBillName(rs.getString("billname"));
+        e.setBillNameText(rs.getString("billnametext"));
         e.setRemark(rs.getString("remark"));
         e.setMoney(rs.getDouble("money"));
         e.setSpentTime(rs.getDate("spenttime"));

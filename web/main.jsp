@@ -325,7 +325,7 @@
 								<%=billnum%>
 							</td>
 							<td>
-								<%=b.getBillName()%>
+								<%=b.getBillNameText()%>
 							</td>
 							<td>
 								<%=b.getSpentTime()%>

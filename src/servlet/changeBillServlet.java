@@ -26,7 +26,7 @@ public class changeBillServlet extends HttpServlet {
         resp.setContentType("text/html; charset=UTF-8");
         if(req.getParameter("userid").equals(session.getAttribute("userid"))){
             bill bill=new bill();
-            bill.setBillName(req.getParameter("billname"));
+            bill.setBillName(Integer.valueOf(req.getParameter("billname")));
             bill.setMoney(Double.valueOf(req.getParameter("money")));
             bill.setRemark(req.getParameter("remark"));
             try {

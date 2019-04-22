@@ -26,7 +26,7 @@ public class addBillServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
         bill bill=new bill();
-        bill.setBillName(req.getParameter("billname"));
+        bill.setBillName(Integer.valueOf(req.getParameter("billname")));
         bill.setMoney(Double.valueOf(req.getParameter("money")));
         bill.setRemark(req.getParameter("remark"));
         try {
@@ -38,11 +38,11 @@ public class addBillServlet extends HttpServlet {
         }
         bill.setUserId(Integer.valueOf(session.getAttribute("userid").toString()));
 //        bill.setPushTime(new Date());// new Date()为获取当前系统时间
-        if(bill.getBillName().equals("收入")){
-            bill.setType(1);
-        }else {
-            bill.setType(0);
-        }
+//        if(bill.getBillName().equals("收入")){
+//            bill.setType(1);
+//        }else {
+//            bill.setType(0);
+//        }
         try {
             if(addBillWishDAO.getInstance().addBill(bill)){
                 PrintWriter out = resp.getWriter();

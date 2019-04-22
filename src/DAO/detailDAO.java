@@ -29,7 +29,7 @@ public class detailDAO {
         return wishArrayList;
     }
     public List<bill> selectBillByFirst(String userid)throws SQLException{
-        String sql = "select * from bill where userid=? order by spenttime desc";
+        String sql = "select * from bill,bill_dictionary where userid=? and billname=billnamenum order by spenttime desc";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,userid);
         ResultSet rs=st.executeQuery();
@@ -46,7 +46,8 @@ public class detailDAO {
         bill e=new bill();
         e.setBillId(rs.getInt("billid"));
         e.setUserId(rs.getInt("userid"));
-        e.setBillName(rs.getString("billname"));
+        e.setBillName(rs.getInt("billname"));
+        e.setBillNameText(rs.getString("billnametext"));
         e.setRemark(rs.getString("remark"));
         e.setMoney(rs.getDouble("money"));
         e.setType(rs.getInt("type"));

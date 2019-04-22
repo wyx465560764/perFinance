@@ -86,7 +86,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label" style="width: 108px">愿望关键词</label>
                             <div class="layui-input-block">
-                                <input type="text" name="wishname" required  lay-verify="required" autocomplete="off" class="layui-input" style="width: 200px" value="请输入关键词" onfocus="javascript:if(this.value=='请输入关键词')this.value='';" onblur="javascript:if(this.value=='')this.value='请输入关键词';">
+                                <input type="text" name="wishname" autocomplete="off" class="layui-input" style="width: 200px" placeholder="请输入关键词">
                             </div>
                         </div>
                         <div class="layui-inline">

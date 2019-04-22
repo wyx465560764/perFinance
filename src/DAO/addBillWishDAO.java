@@ -14,16 +14,15 @@ public class addBillWishDAO {
     public static addBillWishDAO getInstance(){return instance;}
     public boolean addBill(bill bill)throws SQLException,Exception{
         Connection con=DBHelper.getConnection();
-        String sql="insert into bill value (0,?,?,?,?,?,NOW(),?)";
+        String sql="insert into bill value (0,?,?,?,?,?,NOW())";
         PreparedStatement st=con.prepareStatement(sql);
         st.setInt(1,bill.getUserId());
-        st.setString(2,bill.getBillName());
+        st.setString(2,bill.getBillNameText());
         st.setDouble(3,bill.getMoney());
         st.setString(4,bill.getRemark());
         Date spentTime = new java.sql.Date(bill.getSpentTime().getTime());
-        Date pushTime = new java.sql.Date(bill.getSpentTime().getTime());
+        //Date pushTime = new java.sql.Date(bill.getSpentTime().getTime());
         st.setDate(5,spentTime);
-        st.setInt(6,bill.getType());
         if(st.executeUpdate()>0){
             st.close();
             return true;

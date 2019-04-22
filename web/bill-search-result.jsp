@@ -119,7 +119,7 @@
                         %>
                         <tbody>
                         <tr>
-                            <td><%=e.getBillName()%></td>
+                            <td><%=e.getBillNameText()%></td>
                             <td><%=e.getSpentTime()%></td>
                             <td><%=e.getMoney()%></td>
                             <td><%=e.getPushTime()%></td>

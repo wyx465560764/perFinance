@@ -90,7 +90,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label" style="width: 108px">备注关键词</label>
                             <div class="layui-input-block">
-                                <input type="text" name="remark" required  lay-verify="required" autocomplete="off" class="layui-input" style="width: 200px" value="请输入关键词" onfocus="javascript:if(this.value=='请输入关键词')this.value='';" onblur="javascript:if(this.value=='')this.value='请输入关键词';">
+                                <input type="text" name="remark" autocomplete="off" class="layui-input" style="width: 200px" placeholder="请输入关键词">
                             </div>
                         </div>
                         <div class="layui-inline">
@@ -98,13 +98,13 @@
                             <div class="layui-input-block">
                                 <select name="billname" lay-verify="required" style="width:100px">
                                     <option value=""></option>
-                                    <option value="衣食住">衣食住</option>
-                                    <option value="收入">收入</option>
-                                    <option value="医疗保健教育">医疗保健教育</option>
-                                    <option value="人情">人情</option>
-                                    <option value="家庭设备和服务">家庭设备和服务</option>
-                                    <option value="交通和通讯">交通和通讯</option>
-                                    <option value="其他">其他</option>
+                                    <option value="1">衣食住</option>
+                                    <option value="2">收入</option>
+                                    <option value="3">医疗保健教育</option>
+                                    <option value="4">人情</option>
+                                    <option value="5">家庭设备和服务</option>
+                                    <option value="6">交通和通讯</option>
+                                    <option value="7">其他</option>
                                 </select>
                             </div>
                         </div>
@@ -196,7 +196,7 @@
             %>
             <tbody>
             <tr>
-                <td><%=e.getBillName()%></td>
+                <td><%=e.getBillNameText()%></td>
                 <td><%=e.getSpentTime()%></td>
                 <td><%=e.getMoney()%></td>
                 <td><%=e.getPushTime()%></td>

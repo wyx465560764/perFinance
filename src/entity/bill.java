@@ -5,12 +5,22 @@ import java.util.Date;
 public class bill {
     private int billId;
     private int userId;
-    private String billName;
+    private int billName;
+    private String billNameText;
     private double money;
     private String remark;
     private Date spentTime;
     private Date pushTime;
     private int type;
+
+    public String getBillNameText() {
+        return billNameText;
+    }
+
+    public void setBillNameText(String billNameText) {
+        this.billNameText = billNameText;
+    }
+
     public int getType() {
         return type;
     }
@@ -35,11 +45,11 @@ public class bill {
         this.userId = userId;
     }
 
-    public String getBillName() {
+    public int getBillName() {
         return billName;
     }
 
-    public void setBillName(String billName) {
+    public void setBillName(int billName) {
         this.billName = billName;
     }
 

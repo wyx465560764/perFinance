@@ -14,7 +14,7 @@ public class changeBillDAO {
     private static changeBillDAO instance=new changeBillDAO();
     public static changeBillDAO getInstance(){return instance;}
     public bill changeBillSelect(String billid)throws SQLException {
-        String sql="select * from bill where billid=?";
+        String sql="select * from bill,bill_dictionary where billid=? and billnamenum=billname";
         Connection con=DBHelper.getConnection();
         PreparedStatement st=con.prepareStatement(sql);
         st.setString(1,billid);
@@ -28,20 +28,15 @@ public class changeBillDAO {
         return bill;
     }
     public boolean changeBill(bill bill)throws SQLException {
-        String sql="update bill set billname=?,money=?,remark=?,spenttime=?,type=? where billid=?";
+        String sql="update bill set billname=?,money=?,remark=?,spenttime=? where billid=?";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
-        st.setString(1,bill.getBillName());
+        st.setInt(1,bill.getBillName());
         st.setDouble(2,bill.getMoney());
         st.setString(3,bill.getRemark());
 
         Date spenttime = new java.sql.Date(bill.getSpentTime().getTime());
         st.setDate(4,spenttime);
-        if(bill.getBillName().equals("收入")){
-            st.setInt(5,1);
-        }else {
-            st.setInt(5,0);
-        }
-        st.setInt(6,bill.getBillId());
+        st.setInt(5,bill.getBillId());
         if(st.executeUpdate()>0){
             st.close();
             return true;
@@ -54,7 +49,8 @@ public class changeBillDAO {
         bill e=new bill();
         e.setBillId(rs.getInt("billid"));
         e.setUserId(rs.getInt("userid"));
-        e.setBillName(rs.getString("billname"));
+        e.setBillName(rs.getInt("billname"));
+        e.setBillNameText(rs.getString("billnametext"));
         e.setRemark(rs.getString("remark"));
         e.setMoney(rs.getDouble("money"));
         e.setType(rs.getInt("type"));

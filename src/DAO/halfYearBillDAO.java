@@ -13,7 +13,7 @@ public class halfYearBillDAO {
     private static halfYearBillDAO instance=new halfYearBillDAO();
     public static halfYearBillDAO getInstance(){return instance;}
     public ArrayList<monthBill> halfYearBill(String userid) throws SQLException,Exception {
-        String sql="select DATE_FORMAT(spenttime,'%Y-%m') AS month,sum(money) as sum from bill where userid=? and type=0 group by DATE_FORMAT(spenttime,'%Y-%m') ORDER BY DATE_FORMAT(spenttime,'%Y-%m') ASC ";
+        String sql="select DATE_FORMAT(spenttime,'%Y-%m') AS month,sum(money) as sum from bill,bill_dictionary where userid=? and type=0 and billname=billnamenum group by DATE_FORMAT(spenttime,'%Y-%m') ORDER BY DATE_FORMAT(spenttime,'%Y-%m') ASC";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,userid);
         ResultSet rs=st.executeQuery();

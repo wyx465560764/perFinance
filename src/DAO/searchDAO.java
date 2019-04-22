@@ -25,8 +25,8 @@ public class searchDAO {
         String pushMonthMax = (String) list.get(7);
         String userId = (String) list.get(8);
         StringBuffer sql=new StringBuffer();
-        sql.append("select * from bill where userid='"+userId+"'");
-        if(!remark.equals("请输入关键词")){
+        sql.append("select * from bill,bill_dictionary where billnamenum=billname and userid='"+userId+"'");
+        if(!remark.equals("")){
             sql.append("and remark like '%"+remark+"%'");
         }
         if (billName!=""){
@@ -70,7 +70,7 @@ public class searchDAO {
         Connection con=DBHelper.getConnection();
         StringBuffer sql=new StringBuffer();
         sql.append("select * from wish where userid='"+userId+"'");
-        if(!wishName.equals("请输入关键词")){
+        if(!wishName.equals("")){
             sql.append(" and wishname like '%"+wishName+"%'");
         }
         if (status!=""){
@@ -118,7 +118,7 @@ public class searchDAO {
         bill e=new bill();
         e.setBillId(rs.getInt("billid"));
         e.setUserId(rs.getInt("userid"));
-        e.setBillName(rs.getString("billname"));
+        e.setBillNameText(rs.getString("billnametext"));
         e.setRemark(rs.getString("remark"));
         e.setMoney(rs.getDouble("money"));
         e.setType(rs.getInt("type"));
