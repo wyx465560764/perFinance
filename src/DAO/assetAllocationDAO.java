@@ -13,7 +13,7 @@ public class assetAllocationDAO {
     private static assetAllocationDAO instance=new assetAllocationDAO();
     public static assetAllocationDAO getInstance(){return instance;}
     public List<assetAllocation> selectAssetAllocation(int userid)throws SQLException{
-        String sql="SELECT product.type,sum(`order`.buysum) as sum FROM `order`,product WHERE `order`.userid=? and orderstatus=2 and product.productid=`order`.productid GROUP BY product.type";
+        String sql="SELECT product_dictionary.type,sum(`order`.buysum) as sum FROM `order`,product INNER JOIN product_dictionary ON product.type=product_dictionary.typeid WHERE `order`.userid=? and orderstatus=2 and product.productid=`order`.productid GROUP BY product.type";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setInt(1,userid);
         ResultSet rs=st.executeQuery();
