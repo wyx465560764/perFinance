@@ -17,7 +17,7 @@ public class addBillWishDAO {
         String sql="insert into bill value (0,?,?,?,?,?,NOW())";
         PreparedStatement st=con.prepareStatement(sql);
         st.setInt(1,bill.getUserId());
-        st.setString(2,bill.getBillNameText());
+        st.setInt(2,bill.getBillName());
         st.setDouble(3,bill.getMoney());
         st.setString(4,bill.getRemark());
         Date spentTime = new java.sql.Date(bill.getSpentTime().getTime());
