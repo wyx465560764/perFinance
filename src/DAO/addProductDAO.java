@@ -21,17 +21,17 @@ public class addProductDAO {
             return false;
         }
         stu.close();
-        String sql="insert into product value (0,?,?,?,?,?,?,?,?,?)";
+        String sql="insert into product value (0,?,?,?,?,?,?,?,?)";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,product.getProductname());
-        st.setString(2,product.getType());
-        st.setInt(3,product.getEarntype());
+        st.setInt(2,product.getTypeid());
+//        st.setInt(3,product.getEarntype());
+        st.setDouble(3,product.getSum());
         st.setDouble(4,product.getSum());
-        st.setDouble(5,product.getSum());
-        st.setDouble(6,product.getNowprice());
-        st.setDouble(7,product.getExpectedincome());
-        st.setString(8,product.getRemark());
-        st.setInt(9,product.getUserid());
+        st.setDouble(5,product.getNowprice());
+        st.setDouble(6,product.getExpectedincome());
+        st.setString(7,product.getRemark());
+        st.setInt(8,product.getUserid());
         DBHelper.getConnection().setAutoCommit(false);
         int stStatus=st.executeUpdate();
         DBHelper.getConnection().commit();

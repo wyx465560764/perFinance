@@ -120,29 +120,29 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">基金类型</label>
                             <div class="layui-input-block" style="width: auto;">
-                                <select name="type" lay-filter="type" lay-verify="required">
+                                <select name="typeid" lay-filter="type" lay-verify="required">
                                     <option value=""></option>
-                                    <option value="货币型">货币型</option>
-                                    <option value="债券型">债券型</option>
-                                    <option value="QDII">QDII</option>
-                                    <option value="养老FOF">养老FOF</option>
-                                    <option value="股票型">股票型</option>
-                                    <option value="混合型">混合型</option>
-                                    <option value="指数型">指数型</option>
-                                    <option value="理财型">理财型</option>
+                                    <option value="1">货币型</option>
+                                    <option value="2">理财型</option>
+                                    <option value="3">债券型</option>
+                                    <option value="4">QDII</option>
+                                    <option value="5">养老FOF</option>
+                                    <option value="6">股票型</option>
+                                    <option value="7">混合型</option>
+                                    <option value="8">指数型</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">收益类型</label>
-                            <div class="layui-input-block" style="width: auto;">
-                                <select name="earntype" lay-filter="aihao" lay-verify="required">
-                                    <option value=""></option>
-                                    <option value="1">固收</option>
-                                    <option value="2">不定收益</option>
-                                </select>
-                            </div>
-                        </div>
+                        <%--<div class="layui-inline">--%>
+                            <%--<label class="layui-form-label">收益类型</label>--%>
+                            <%--<div class="layui-input-block" style="width: auto;">--%>
+                                <%--<select name="earntype" lay-filter="aihao" lay-verify="required">--%>
+                                    <%--<option value=""></option>--%>
+                                    <%--<option value="1">固收</option>--%>
+                                    <%--<option value="2">不定收益</option>--%>
+                                <%--</select>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">发行份数</label>

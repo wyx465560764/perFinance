@@ -8,12 +8,13 @@ import java.util.List;
 
 import dbtool.DBHelper;
 import entity.product;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 public class viewIncomeDAO {
     private static viewIncomeDAO instance=new viewIncomeDAO();
     public static viewIncomeDAO getInstance(){return instance;}
     public List<product> selectUnfixedIcome(String type)throws SQLException {
-        String sql="select * from product where type=?";
+        String sql="select * from product INNER JOIN product_dictionary ON product.type=product_dictionary.typeid where typeid=?";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,type);
         ResultSet rs=st.executeQuery();
@@ -30,8 +31,8 @@ public class viewIncomeDAO {
         product e=new product();
         e.setProductid(rs.getInt("productid"));
         e.setProductname(rs.getString("productname"));
-        e.setType(rs.getString("type"));
-        e.setEarntype(rs.getInt("earntype"));
+        e.setType(rs.getString("product_dictionary.type"));
+        e.setEarntype(rs.getInt("product_dictionary.earntype"));
         e.setSum(rs.getDouble("sum"));
         e.setOver(rs.getDouble("over"));
         e.setNowprice(rs.getDouble("nowprice"));

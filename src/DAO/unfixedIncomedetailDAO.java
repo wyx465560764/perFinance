@@ -34,8 +34,8 @@ public class unfixedIncomedetailDAO {
         String sql="SELECT" +
                 " product.productid," +
                 "product.productname," +
-                "product.type," +
-                "product.earntype," +
+                "product_dictionary.earntype," +
+                "product_dictionary.type," +
                 "product.sum," +
                 "product.over," +
                 "product.nowprice," +
@@ -46,7 +46,7 @@ public class unfixedIncomedetailDAO {
                 "earn.price," +
                 "`user`.username," +
                 "`user`.managercontext" +
-                " FROM ((product INNER JOIN earn on product.productid=earn.productid) INNER JOIN user ON `user`.userid=product.userid)" +
+                " FROM (((product inner join product_dictionary on product_dictionary.typeid=product.type) INNER JOIN earn on product.productid=earn.productid) INNER JOIN user ON `user`.userid=product.userid)" +
                 " WHERE product.productid=? and pushtime in(SELECT MIN(pushtime) from earn WHERE productid=?)";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setInt(1,productid);

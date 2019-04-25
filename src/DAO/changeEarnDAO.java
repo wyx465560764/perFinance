@@ -12,7 +12,7 @@ public class changeEarnDAO {
     private static changeEarnDAO instance=new changeEarnDAO();
     public static changeEarnDAO getInstance(){return instance;}
     public product changeEarnSelect(String productid)throws SQLException {
-        String sql="select * from product where productid=?";
+        String sql="select * from product INNER JOIN product_dictionary ON product.type=product_dictionary.typeid where productid=?";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,productid);
         ResultSet rs=st.executeQuery();
@@ -20,8 +20,8 @@ public class changeEarnDAO {
         if(rs.next()){
             e.setProductid(rs.getInt("productid"));
             e.setProductname(rs.getString("productname"));
-            e.setType(rs.getString("type"));
-            e.setEarntype(rs.getInt("earntype"));
+            e.setType(rs.getString("product_dictionary.type"));
+            e.setEarntype(rs.getInt("product_dictionary.earntype"));
             e.setSum(rs.getDouble("sum"));
             e.setOver(rs.getDouble("over"));
             e.setNowprice(rs.getDouble("nowprice"));

@@ -24,8 +24,8 @@ public class addProductServlet  extends HttpServlet {
         product product=new product();
         product.setUserid(Integer.valueOf(session.getAttribute("userid").toString()));
         product.setProductname(req.getParameter("productname"));
-        product.setType(req.getParameter("type"));
-        product.setEarntype(Integer.valueOf(req.getParameter("earntype")));
+        product.setTypeid(Integer.valueOf(req.getParameter("typeid")));
+//        product.setEarntype(Integer.valueOf(req.getParameter("earntype")));
         product.setSum(Double.valueOf(req.getParameter("sum")));
         product.setNowprice(Double.valueOf(req.getParameter("nowprice")));
         product.setExpectedincome(Double.valueOf(req.getParameter("expectedincome")));

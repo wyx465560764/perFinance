@@ -13,7 +13,7 @@ public class productDAO {
     private static productDAO instance=new productDAO();
     public static productDAO getInstance(){return instance;}
     public List<product> SelectProductEarnDetail(String userid) throws SQLException,Exception {
-        String sql = "select * from product where userid=? and earntype=2 order by productid desc";
+        String sql = "select * from product INNER JOIN product_dictionary ON product.type=product_dictionary.typeid where userid=? and earntype=2 order by productid desc";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,userid);
         ResultSet rs=st.executeQuery();
@@ -27,7 +27,7 @@ public class productDAO {
         return productArrayList;
     }
     public List<product> SelectProductDetail(String userid) throws SQLException,Exception {
-        String sql = "select * from product where userid=? order by productid desc";
+        String sql = "select * from product INNER JOIN product_dictionary ON product.type=product_dictionary.typeid where userid=? order by productid desc";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setString(1,userid);
         ResultSet rs=st.executeQuery();
@@ -44,8 +44,8 @@ public class productDAO {
         product e=new product();
         e.setProductid(rs.getInt("productid"));
         e.setProductname(rs.getString("productname"));
-        e.setType(rs.getString("type"));
-        e.setEarntype(rs.getInt("earntype"));
+        e.setType(rs.getString("product_dictionary.type"));
+        e.setEarntype(rs.getInt("product_dictionary.earntype"));
         e.setSum(rs.getDouble("sum"));
         e.setOver(rs.getDouble("over"));
         e.setNowprice(rs.getDouble("nowprice"));

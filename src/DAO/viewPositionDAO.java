@@ -15,8 +15,8 @@ public class viewPositionDAO {
     public List<position> selectPosition(int userid)throws SQLException {
         String sql="SELECT" +
                 " product.productname," +
-                " product.type," +
-                " product.earntype," +
+                " product_dictionary.type," +
+                " product_dictionary.earntype," +
                 " product.nowprice," +
                 " product.expectedincome," +
                 " order.orderid," +
@@ -27,7 +27,7 @@ public class viewPositionDAO {
                 " order.buyprice," +
                 " order.buynum," +
                 " order.sellprice" +
-                " FROM product,`order`" +
+                " FROM product INNER JOIN product_dictionary ON product.type=product_dictionary.typeid,`order`" +
                 " WHERE `order`.userid=? and product.productid=`order`.productid order by orderid desc ";
         PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
         st.setInt(1,userid);
@@ -44,8 +44,8 @@ public class viewPositionDAO {
     private position fromResultSet(ResultSet rs) throws SQLException{
         position position=new position();
         position.setProductname(rs.getString("productname"));
-        position.setType(rs.getString("type"));
-        position.setEarntype(rs.getInt("earntype"));
+        position.setType(rs.getString("product_dictionary.type"));
+        position.setEarntype(rs.getInt("product_dictionary.earntype"));
         position.setNowprice(rs.getDouble("nowprice"));
         position.setExpectedincome(rs.getDouble("expectedincome"));
         position.setOrderid(rs.getInt("orderid"));

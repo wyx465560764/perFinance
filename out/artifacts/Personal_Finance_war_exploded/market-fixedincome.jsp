@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="DAO.recentMonthIncomeDAO" %>
+<%@ page import="DAO.selectProductTypeDAO" %>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -62,14 +63,14 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">基金类型</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="market-fixedincome.jsp?type=货币型&page=1">货币型</a></dd>
-                        <dd><a href="market-fixedincome.jsp?type=理财型&page=1">理财型</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=债券型&page=1">债券型</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=QDII&page=1">QDII</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=养老FOF&page=1">养老FOF</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=股票型&page=1">股票型</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=混合型&page=1">混合型</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=指数型&page=1">指数型</a></dd>
+                        <dd><a href="market-fixedincome.jsp?type=1&page=1">货币型</a></dd>
+                        <dd><a href="market-fixedincome.jsp?type=2&page=1">理财型</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=3&page=1">债券型</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=4&page=1">QDII</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=5&page=1">养老FOF</a></dd>
+                            <dd><a href="market-unfixedincome.jsp?type=6&page=1">股票型</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=7&page=1">混合型</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=8&page=1">指数型</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="user-position.jsp?page=1">我的持仓</a></li>
@@ -83,7 +84,7 @@
                 <span class="layui-breadcrumb">
                     <a href="main.jsp">首页</a>
                     <a href="market-first.jsp">基金超市</a>
-                    <a><cite><%=request.getParameter("type")%></cite></a>
+                    <a><cite><%=selectProductTypeDAO.getInstance().getProductTypeDAO(Integer.valueOf(request.getParameter("type")))%></cite></a>
                 </span>
             </div>
         </div>
@@ -139,14 +140,14 @@
 
             <% if(Page>1){ %>
 
-            <a href="market-fixedincome.jsp?page=<%=Page-1%>" class="layui-btn">上一页</a>
+            <a href="market-fixedincome.jsp?type=<%=request.getParameter("type")%>&page=<%=Page-1%>" class="layui-btn">上一页</a>
 
             <% }else{ %>
             <a class="layui-btn">上一页</a>
             <%}%>
             <% if(Page<PageCount){ %>
 
-            <a href="market-fixedincome.jsp?page=<%=Page+1%>" class="layui-btn">下一页</a>
+            <a href="market-fixedincome.jsp?type=<%=request.getParameter("type")%>&page=<%=Page+1%>" class="layui-btn">下一页</a>
 
             <% }else{ %>
             <a class="layui-btn">下一页</a>

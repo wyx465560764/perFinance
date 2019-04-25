@@ -11,7 +11,14 @@ public class product {
     private double expectedincome;
     private String remark;
     private int userid;
+    private int typeid;
+    public int getTypeid() {
+        return typeid;
+    }
 
+    public void setTypeid(int typeid) {
+        this.typeid = typeid;
+    }
     public int getProductid() {
         return productid;
     }
