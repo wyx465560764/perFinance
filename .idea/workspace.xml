@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eee75dc3-9ae1-43f5-939a-4b550664a1dc" name="Default" comment="取消加密">
-      <change beforePath="$PROJECT_DIR$/src/DAO/addBillWishDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/addBillWishDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/user-position.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/user-position.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -55,8 +54,8 @@
       <file leaf-file-name="user-position.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/user-position.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="863">
-              <caret line="172" column="30" lean-forward="true" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
+            <state relative-caret-position="213">
+              <caret line="173" column="26" lean-forward="true" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -517,7 +516,7 @@
       <workItem from="1555574335314" duration="345000" />
       <workItem from="1555899533757" duration="10789000" />
       <workItem from="1555984781641" duration="3911000" />
-      <workItem from="1556159692608" duration="17506000" />
+      <workItem from="1556159692608" duration="18341000" />
     </task>
     <task id="LOCAL-00001" summary="3/16总结">
       <created>1552738832686</created>
@@ -593,7 +592,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="367100000" />
+    <option name="totallyTimeSpent" value="367935000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -619,7 +618,7 @@
       <window_info id="Structure" order="1" sideWeight="0.50274724" side_tool="true" weight="0.21028744" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3983471" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3983471" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3293348" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.3289256" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
@@ -627,9 +626,9 @@
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.3272727" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3570248" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3570248" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289256" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49725273" visible="true" weight="0.2632375" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49725273" visible="true" weight="0.2632375" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289256" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -727,11 +726,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/user-position.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3525" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/background.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1900">
@@ -1095,10 +1089,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/Personal_Finance_war_exploded/user-position.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/user-position.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="172" column="30" lean-forward="true" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
+        <state relative-caret-position="213">
+          <caret line="173" column="26" lean-forward="true" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
         </state>
       </provider>
     </entry>
