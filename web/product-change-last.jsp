@@ -22,12 +22,12 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">基金经理后台</div>
+        <div class="layui-logo"><a href="background.jsp" style="color: #009688">基金经理后台</a></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="main.jsp">主页</a></li>
-            <li class="layui-nav-item"><a href="wish-detail.jsp?page=1">个人愿望单</a></li>
-            <li class="layui-nav-item"><a href="bill-detail.jsp?page=1">个人账单</a></li>
+            <%--<li class="layui-nav-item"><a href="main.jsp">主页</a></li>--%>
+            <%--<li class="layui-nav-item"><a href="wish-detail.jsp?page=1">个人愿望单</a></li>--%>
+            <%--<li class="layui-nav-item"><a href="bill-detail.jsp?page=1">个人账单</a></li>--%>
             <%--<li class="layui-nav-item"><a href="product-earn.jsp">理财收益管理</a></li>--%>
             <%--<li class="layui-nav-item">--%>
             <%--<a href="javascript:;">其它功能</a>--%>
@@ -79,12 +79,14 @@
         <div style="padding: 20px; background-color: #F2F2F2;">
             <div style="height: 30px">
                 <span class="layui-breadcrumb">
-                    <a href="main.jsp">首页</a>
+                    <%--<a href="main.jsp">首页</a>--%>
                     <a href="background.jsp">基金经理后台</a>
-                    <a><cite>修改基金</cite></a>
+                    <a href="product-change.jsp?page=1">修改基金</a>
+                    <a><cite>修改基金详情</cite></a>
                 </span>
             </div>
         </div>
+        <div style="height: 30px"></div>
         <fieldset class="layui-elem-field">
             <legend>修改基金</legend>
             <div class="layui-field-box">

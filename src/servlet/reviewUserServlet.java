@@ -36,11 +36,11 @@ public class reviewUserServlet extends HttpServlet {
             if(operate==1){
                 if(reviewUserDAO.isPersonal(userid,orderid)){
                     if(reviewUserDAO.disReview(orderid)){
-                        if(num%10==1) {
-                            req.getRequestDispatcher("user-position.jsp?page=" + (page - 1)).forward(req, resp);
-                        }else {
+//                        if(num%10==1) {
+//                            req.getRequestDispatcher("user-position.jsp?page=" + (page - 1)).forward(req, resp);
+//                        }else {
                             req.getRequestDispatcher("user-position.jsp?page=" + page).forward(req, resp);
-                        }
+//                        }
                     }else {
                         out.println("<script language = javascript>alert('发生错误，请正确操作系统');");
                         out.println("location.href='"+req.getContextPath()+"user-position.jsp?page="+page+"'</script>");
@@ -52,11 +52,11 @@ public class reviewUserServlet extends HttpServlet {
             }if(operate==2){
                 if(reviewUserDAO.isPersonal(userid,orderid)){
                     if(reviewUserDAO.sell(orderid)){
-                        if(num%10==1) {
-                            req.getRequestDispatcher("user-position.jsp?page=" + (page - 1)).forward(req, resp);
-                        }else {
+//                        if(num%10==1) {
+//                            req.getRequestDispatcher("user-position.jsp?page=" + (page - 1)).forward(req, resp);
+//                        }else {
                             req.getRequestDispatcher("user-position.jsp?page=" + page).forward(req, resp);
-                        }
+//                        }
                     }
                 }else {
                     out.println("<script language = javascript>alert('发生错误，请正确操作系统');");
@@ -65,11 +65,11 @@ public class reviewUserServlet extends HttpServlet {
             }if(operate==3){
                 if(reviewUserDAO.isPersonal(userid,orderid)){
                     if(reviewUserDAO.disSell(orderid)){
-                        if(num%10==1) {
-                            req.getRequestDispatcher("user-position.jsp?page=" + (page - 1)).forward(req, resp);
-                        }else {
+//                        if(num%10==1) {
+//                            req.getRequestDispatcher("user-position.jsp?page=" + (page - 1)).forward(req, resp);
+//                        }else {
                             req.getRequestDispatcher("user-position.jsp?page=" + page).forward(req, resp);
-                        }
+//                        }
                     }else {
                         out.println("<script language = javascript>alert('发生错误，请正确操作系统');");
                         out.println("location.href='"+req.getContextPath()+"user-position.jsp?page="+page+"'</script>");

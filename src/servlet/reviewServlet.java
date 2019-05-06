@@ -37,7 +37,7 @@ public class reviewServlet extends HttpServlet {
             if(operate==1){
                 if(reviewDAO.isPersonal(userid,orderid)){
                     if(reviewDAO.reviewPass(orderid)){
-                        if(num%10==1) {
+                        if(num%10==1&&num!=1) {
                             req.getRequestDispatcher("product-review.jsp?page=" + (page - 1)+"&status="+status).forward(req, resp);
                         }else {
                             req.getRequestDispatcher("product-review.jsp?page=" + page+"&status="+status).forward(req, resp);
@@ -53,7 +53,7 @@ public class reviewServlet extends HttpServlet {
             }else if(operate==2){
                 if(reviewDAO.isPersonal(userid,orderid)){
                     if(reviewDAO.reviewDisagree(orderid)){
-                        if(num%10==1) {
+                        if(num%10==1&&num!=1) {
                             req.getRequestDispatcher("product-review.jsp?page=" + (page - 1)+"&status="+status).forward(req, resp);
                         }else {
                             req.getRequestDispatcher("product-review.jsp?page=" + page+"&status="+status).forward(req, resp);
