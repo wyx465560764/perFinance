@@ -61,14 +61,14 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">基金类型</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="market-fixedincome.jsp?type=货币型&page=1">货币型</a></dd>
-                        <dd><a href="market-fixedincome.jsp?type=理财型&page=1">理财型</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=债券型&page=1">债券型</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=QDII&page=1">QDII</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=养老FOF&page=1">养老FOF</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=股票型&page=1">股票型</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=混合型&page=1">混合型</a></dd>
-                        <dd><a href="market-unfixedincome.jsp?type=指数型&page=1">指数型</a></dd>
+                        <dd><a href="market-fixedincome.jsp?type=1&page=1">货币型</a></dd>
+                        <dd><a href="market-fixedincome.jsp?type=2&page=1">理财型</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=3&page=1">债券型</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=4&page=1">QDII</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=5&page=1">养老FOF</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=6&page=1">股票型</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=7&page=1">混合型</a></dd>
+                        <dd><a href="market-unfixedincome.jsp?type=8&page=1">指数型</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="user-position.jsp?page=1">我的持仓</a></li>
