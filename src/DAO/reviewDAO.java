@@ -38,7 +38,7 @@ public class reviewDAO {
                     return false;
                 }
             }else if(rs.getInt("orderstatus")==3){
-                String sql="update `order` set orderstatus=orderstatus+1,sellprice=(SELECT nowprice FROM product WHERE productid=?),selltime=now() where orderid=?";
+                String sql="update `order` set orderstatus=orderstatus+1,sellprice=(SELECT nowprice FROM product WHERE productid=?) where orderid=?";
                 PreparedStatement st=DBHelper.getConnection().prepareStatement(sql);
                 st.setInt(1,rs.getInt("productid"));
                 st.setInt(2,orderid);

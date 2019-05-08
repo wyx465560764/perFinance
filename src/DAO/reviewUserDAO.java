@@ -62,7 +62,7 @@ public class reviewUserDAO {
             orderstatus=rs.getInt("orderstatus");
         }
         if(orderstatus==2){
-            String sql2="update `order` set orderstatus=3 where orderid=?";
+            String sql2="update `order` set orderstatus=3,selltime=now() where orderid=?";
             PreparedStatement st2=DBHelper.getConnection().prepareStatement(sql2);
             st2.setInt(1,orderid);
             if(st2.executeUpdate()>0){

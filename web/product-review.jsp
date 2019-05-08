@@ -130,7 +130,7 @@
                         <td><%=e.getBuysum()%></td>
                         <td><%if(Integer.valueOf(request.getParameter("status"))==1){%>
                             <%=e.getPushtime()%>
-                            <%}else if(Integer.valueOf(request.getParameter("status"))==1){%>
+                            <%}else if(Integer.valueOf(request.getParameter("status"))==3){%>
                             <%=e.getSelltime()%>
                             <%}%>
                         </td>
